@@ -1,0 +1,28 @@
+---
+name: Card
+menu: Components
+---
+
+import { Props, Playground } from "docz";
+import Card from "./Card";
+import GlobalStyles from "../GlobalStyles";
+
+<GlobalStyles />
+
+# Card
+
+<Props of={Card} />
+
+## Basic usage
+
+<Playground>
+  <Card title="My card" content="My content" />
+</Playground>
+
+<Playground>
+  <Card title="Without tags" content="My content" />
+</Playground>
+
+<Playground>
+  <Card title="Bookmark active" content="My content" bookmarked />
+</Playground>
