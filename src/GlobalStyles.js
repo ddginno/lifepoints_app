@@ -10,6 +10,6 @@ export default createGlobalStyle`
     }
 
     body {
-        font-family: ssans-serif;
+        font-family: sans-serif;
     }
 `;

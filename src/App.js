@@ -1,12 +1,16 @@
 import React from "react";
 import Card from "./components/Card";
+import Container from "./components/Container";
+import PropTypes from "prop-types";
 
 function App() {
   return (
-    <div className="App">
-      <Card />
-      <h1>Hallo</h1>
-    </div>
+    <Container className="App">
+      <Card
+        titleContent="LIMITED EDITION"
+        subtitleContent="NIKES NEUER SUPER SCHUH DER SUPERLATIVE"
+      />
+    </Container>
   );
 }
 
