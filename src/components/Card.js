@@ -3,11 +3,13 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
   background: #6d7278;
   width: 100%;
-
   border-radius: 1px;
   position: relative;
+  margin-bottom: 5px;
 `;
 
 const StyledTitle = styled.p`
@@ -28,16 +30,16 @@ const ContentImageCard = styled.img`
 `;
 
 const ContentContainer = styled.div`
-  padding-left: 10px;
+  padding: 5px 5px 5px 10px;
   font-family: sans-serif;
   border: 2px solid #979797;
   margin: 0px;
 `;
 
-function Card({ titleContent, subtitleContent }) {
+function Card({ titleContent, subtitleContent, imageContent }) {
   return (
     <StyledCard onClick>
-      <ContentImageCard alt="" src="Nike.jpg" />
+      <ContentImageCard src={imageContent} />
       <ContentContainer>
         <StyledTitle>{titleContent}</StyledTitle>
         <StyledSubtitle>{subtitleContent}</StyledSubtitle>
