@@ -1,20 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import ContenImageCard from "./ContentImageCard";
 
 const StyledCard = styled.div`
-  padding: 18px;
+  padding: 2px;
   background: #6d7278;
+  width: 100vw;
   border: 2px solid #979797;
   border-radius: 1px;
   position: relative;
 `;
 
+const StyledTitle = styled.p`
+  color: white;
+`;
+
 function Card() {
   return (
     <StyledCard>
-      <img />
-      <title />
+      <ContenImageCard />
+      <StyledTitle>NIKES NEUER SUPER SCHUH DER SUPERLATIVE</StyledTitle>
     </StyledCard>
   );
 }
