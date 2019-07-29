@@ -13,6 +13,7 @@ function News() {
           imageContent={card.imageContent}
           titleContent={card.titleContent}
           subtitleContent={card.subtitleContent}
+          desciption={card.desciption}
         />
       </>
     );

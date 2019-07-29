@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 
 const InputStyle = styled.div`
   display: flex;
@@ -50,14 +50,15 @@ function CreateContent({ history, onCreate }) {
 
     const form = event.target;
     const newsCard = {
-      maintitle: form.maintitle.value,
+      titleContent: form.titleContent.value,
+      subtitleContent: form.subtitleContent.value,
       desciption: form.desciption.value,
-      img: form.img.value,
+      imageContent: form.imageContent.value,
       video: form.video.value,
       points: form.points.value
     };
-    //onCreate(newscard);
-    //history.replace("/");
+    onCreate(newsCard);
+    history.replace("/");
     console.log(newsCard);
   }
   function handleSubmitShop(event) {
@@ -65,7 +66,7 @@ function CreateContent({ history, onCreate }) {
 
     const formShop = event.target;
     const shopCard = {
-      title: formShop.title.value,
+      shopTitle: formShop.shopTitle.value,
       shopimg: formShop.shopimg.value
     };
 
@@ -78,13 +79,23 @@ function CreateContent({ history, onCreate }) {
         <BackendTitle>News</BackendTitle>
         <form onSubmit={handleSubmitNews}>
           <Input>
-            <StyleInput name="maintitle" placeholder="Hauptitle eingeben..." />
-            <StyleInput name="subtitle" placeholder="Untertitle eingeben..." />
+            <StyleInput
+              name="titleContent"
+              placeholder="Haupttitle eingeben..."
+            />
+            <StyleInput
+              name="subtitleContent"
+              placeholder="Untertitle eingeben..."
+            />
             <CardInputDescription
               name="desciption"
               placeholder="Text eingeben..."
             />
-            <StyleInput name="img" placeholder="Bild hochladen..." />
+            <StyleInput
+              name="imageContent"
+              type="file"
+              placeholder="Bild hochladen..."
+            />
             <StyleInput name="video" placeholder="Video hochladen..." />
             <StyleInput name="points" placeholder="Punkte eingeben..." />
           </Input>
@@ -93,7 +104,7 @@ function CreateContent({ history, onCreate }) {
         <BackendTitle>SHOP</BackendTitle>
 
         <form onSubmit={handleSubmitShop}>
-          <StyleInput name="title" placeholder="Haupttitle eingeben..." />
+          <StyleInput name="shopTitle" placeholder="Haupttitle eingeben..." />
           <StyleInput name="shopimg" placeholder="Bild hochladen..." />
           <SendButton type="submit">Send</SendButton>
         </form>

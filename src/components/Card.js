@@ -36,9 +36,9 @@ const ContentContainer = styled.div`
   margin: 0px;
 `;
 
-function Card({ titleContent, subtitleContent, imageContent }) {
+function Card({ titleContent, subtitleContent, imageContent, ...props }) {
   return (
-    <StyledCard onClick>
+    <StyledCard {...props}>
       <ContentImageCard src={imageContent} />
       <ContentContainer>
         <StyledTitle>{titleContent}</StyledTitle>
