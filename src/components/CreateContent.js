@@ -7,29 +7,14 @@ const InputStyle = styled.div`
   flex-direction: column;
 `;
 
-const CardInputTitle = styled.input`
+const StyleInput = styled.input`
   background-color: #d8d8d8;
   margin-bottom: 3px;
 `;
-const CardInputSubtitle = styled.input`
-  background-color: #d8d8d8;
-  margin-bottom: 3px;
-`;
+
 const CardInputDescription = styled.textarea`
   background-color: #d8d8d8;
   height: 200px;
-  margin-bottom: 3px;
-`;
-const CardInputImg = styled.input`
-  background-color: #d8d8d8;
-  margin-bottom: 3px;
-`;
-const CardInputVideo = styled.input`
-  background-color: #d8d8d8;
-  margin-bottom: 3px;
-`;
-const CardInputPoints = styled.input`
-  background-color: #d8d8d8;
   margin-bottom: 3px;
 `;
 
@@ -59,36 +44,59 @@ const SendButton = styled.button`
   background-color: #0ae5f5;
 `;
 
-const ShopCardInputTitle = styled.input`
-  background-color: #d8d8d8;
-  margin-bottom: 3px;
-`;
-const ShopCardInputImg = styled.input`
-  background-color: #d8d8d8;
-  margin-bottom: 3px;
-`;
+function CreateContent({ history, onCreate }) {
+  function handleSubmitNews(event) {
+    event.preventDefault();
 
-function CreateContent() {
+    const form = event.target;
+    const newsCard = {
+      maintitle: form.maintitle.value,
+      desciption: form.desciption.value,
+      img: form.img.value,
+      video: form.video.value,
+      points: form.points.value
+    };
+    //onCreate(newscard);
+    //history.replace("/");
+    console.log(newsCard);
+  }
+  function handleSubmitShop(event) {
+    event.preventDefault();
+
+    const formShop = event.target;
+    const shopCard = {
+      title: formShop.title.value,
+      shopimg: formShop.shopimg.value
+    };
+
+    console.log(shopCard);
+  }
+
   return (
     <>
       <InputStyle>
         <BackendTitle>News</BackendTitle>
-
-        <Input>
-          <CardInputTitle type="text" placeholder="Hauptitle eingeben..." />
-          <CardInputSubtitle type="text" placeholder="Untertitle eingeben..." />
-          <CardInputDescription type="text" placeholder="Text eingeben..." />
-          <CardInputImg type="text" placeholder="Bild hochladen..." />
-          <CardInputVideo type="text" placeholder="Video hochladen..." />
-          <CardInputPoints type="text" placeholder="Punkte eingeben..." />
-        </Input>
-        <SendButton>Send</SendButton>
-
+        <form onSubmit={handleSubmitNews}>
+          <Input>
+            <StyleInput name="maintitle" placeholder="Hauptitle eingeben..." />
+            <StyleInput name="subtitle" placeholder="Untertitle eingeben..." />
+            <CardInputDescription
+              name="desciption"
+              placeholder="Text eingeben..."
+            />
+            <StyleInput name="img" placeholder="Bild hochladen..." />
+            <StyleInput name="video" placeholder="Video hochladen..." />
+            <StyleInput name="points" placeholder="Punkte eingeben..." />
+          </Input>
+          <SendButton type="submit">Send</SendButton>
+        </form>
         <BackendTitle>SHOP</BackendTitle>
 
-        <ShopCardInputTitle type="text" placeholder="Hauptitle eingeben..." />
-        <ShopCardInputImg type="text" placeholder="Bild hochladen..." />
-        <SendButton>Send</SendButton>
+        <form onSubmit={handleSubmitShop}>
+          <StyleInput name="title" placeholder="Haupttitle eingeben..." />
+          <StyleInput name="shopimg" placeholder="Bild hochladen..." />
+          <SendButton type="submit">Send</SendButton>
+        </form>
       </InputStyle>
     </>
   );
