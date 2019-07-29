@@ -1,29 +1,23 @@
 import React from "react";
-import Card from "./components/Card";
-import Container from "./components/Container";
-import PropTypes from "prop-types";
-//import { BrowserRouter } from "react-router-dom";
 
-import cards from "./Pages/__Mock__/cards";
+import PropTypes from "prop-types";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import News from "./Pages/News";
+import Backend from "./Pages/Backend";
+import GlobalStyles from "./GlobalStyles";
 
 function App() {
-  function renderCard(card) {
-    return (
-      //<Router>
-      //<Switch>
-      <>
-        <Card
-          key={card._id}
-          imageContent={card.imageContent}
-          titleContent={card.titleContent}
-          subtitleContent={card.subtitleContent}
-        />
-      </>
-      //</Switch>
-      //</Router>
-    );
-  }
-  return <Container>{cards.map(card => renderCard(card))}</Container>;
+  return (
+    <>
+      <Router>
+        <GlobalStyles />
+        <Switch>
+          <Route path="/backend" render={props => <Backend {...props} />} />
+          <Route path="/" render={props => <News {...props} />} />
+        </Switch>
+      </Router>
+    </>
+  );
 }
 
 export default App;
