@@ -9,7 +9,11 @@ const newsSchema = new mongoose.Schema({
   imageContent: String,
   desciption: String,
   video: String,
-  points: String
+  points: String,
+  dateCreated: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 module.exports = mongoose.model("news", newsSchema);
