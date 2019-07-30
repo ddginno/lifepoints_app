@@ -51,7 +51,7 @@ function Card({ titleContent, subtitleContent, imageContent, ...props }) {
 Card.propTypes = {
   titleContent: PropTypes.string.isRequired,
   subtitleContent: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired
+  height: PropTypes.string,
+  width: PropTypes.string
 };
 export default Card;

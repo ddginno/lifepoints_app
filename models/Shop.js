@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
 const cardSchema = new mongoose.Schema({
-  titleContent: {
+  shopTitle: {
     type: String,
     required: true
   },
-  subtitleContent: String,
-  imageContent: String
+  shopImg: String
 });
 
 module.exports = mongoose.model("Card", cardSchema);

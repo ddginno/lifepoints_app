@@ -3,23 +3,27 @@ import React from "react";
 //import PropTypes from "prop-types";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import News from "./Pages/News";
-//import Backend from "./Pages/Backend";
+
 import GlobalStyles from "./GlobalStyles";
 import CreateContent from "./components/CreateContent";
-import { getFromLocal, setToLocal, getCards, postCard } from "./services";
+import { getNews, postCard } from "./services";
 
 function App() {
-  const [newsCards, setNewsCards] = React.useState(getFromLocal("cards") || []);
+  const [newsCards, setNewsCards] = React.useState([]);
 
   React.useEffect(() => {
-    loadCards();
+    getNews().then(result => {
+      const cards = result;
+      console.log(cards);
+      setNewsCards(cards);
+    });
   }, []);
 
-  async function loadCards() {
-    setNewsCards(await getCards());
-  }
+  // async function loadCards() {
+  //   setNewsCards(await getNews());
+  // }
 
-  React.useEffect(() => setToLocal("cards", newsCards), [newsCards]);
+  // React.useEffect(() => setToLocal("cards", newsCards), [newsCards]);
 
   function handleCreate(card) {
     postCard(card).then(result => setNewsCards([result, ...newsCards]));
@@ -36,7 +40,10 @@ function App() {
               <CreateContent onCreate={handleCreate} {...props} />
             )}
           />
-          <Route path="/" render={props => <News {...props} />} />
+          <Route
+            path="/"
+            render={props => <News cards={newsCards} {...props} />}
+          />
         </Switch>
       </Router>
     </>

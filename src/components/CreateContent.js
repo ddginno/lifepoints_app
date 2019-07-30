@@ -91,11 +91,7 @@ function CreateContent({ history, onCreate }) {
               name="desciption"
               placeholder="Text eingeben..."
             />
-            <StyleInput
-              name="imageContent"
-              type="file"
-              placeholder="Bild hochladen..."
-            />
+            <StyleInput name="imageContent" placeholder="Bild hochladen..." />
             <StyleInput name="video" placeholder="Video hochladen..." />
             <StyleInput name="points" placeholder="Punkte eingeben..." />
           </Input>

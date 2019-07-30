@@ -5,8 +5,8 @@ export function getFromLocal(name) {
 export function setToLocal(name, data) {
   localStorage.setItem(name, JSON.stringify(data));
 }
-export function getCards() {
-  return fetch("/api/cards").then(res => res.json());
+export function getNews() {
+  return fetch("/api/News").then(res => res.json());
 }
 
 export function postCard(data) {
@@ -18,7 +18,7 @@ export function patchCard(data, id) {
 }
 
 function fetchCard(method, data, id = "") {
-  return fetch("/api/cards/" + id, {
+  return fetch("/api/News/" + id, {
     method,
     headers: {
       "Content-Type": "application/json"
