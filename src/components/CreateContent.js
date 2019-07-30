@@ -67,7 +67,7 @@ function CreateContent({ history, onCreate }) {
     const formShop = event.target;
     const shopCard = {
       shopTitle: formShop.shopTitle.value,
-      shopimg: formShop.shopimg.value
+      shopImg: formShop.shopimg.value
     };
 
     console.log(shopCard);
@@ -101,7 +101,7 @@ function CreateContent({ history, onCreate }) {
 
         <form onSubmit={handleSubmitShop}>
           <StyleInput name="shopTitle" placeholder="Haupttitle eingeben..." />
-          <StyleInput name="shopimg" placeholder="Bild hochladen..." />
+          <StyleInput name="shopImg" placeholder="Bild hochladen..." />
           <SendButton type="submit">Send</SendButton>
         </form>
       </InputStyle>
