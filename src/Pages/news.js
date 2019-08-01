@@ -1,22 +1,32 @@
 import React from "react";
-import Card from "../components/Card";
+import NewsContentCard from "../components/NewsContentCard";
 import Container from "../components/Container";
 //import cards from "./__Mock__/cards";
 //import GlobalStyles from "../GlobalStyles";
+import { getNews } from "../services";
 
 function News({ cards }) {
+  const [news, setNews] = React.useState([]);
+
+  React.useEffect(() => {
+    getNews().then(result => {
+      const cards = result;
+      console.log(cards);
+      setNews(cards);
+    });
+  }, []);
+
   function renderCard(card) {
     return (
-      <Card
+      <NewsContentCard
         key={card._id}
         imageContent={card.imageContent}
         titleContent={card.titleContent}
         subtitleContent={card.subtitleContent}
-        desciption={card.desciption}
       />
     );
   }
-  return <Container>{cards.map(card => renderCard(card))}</Container>;
+  return <Container>{news.map(news => renderCard(news))}</Container>;
 }
 
 export default News;

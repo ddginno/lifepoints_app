@@ -9,4 +9,4 @@ const shopCardSchema = new mongoose.Schema({
   shopPoints: String
 });
 
-module.exports = mongoose.model("Shop", shopCardSchema);
+module.exports = mongoose.model("shop", shopCardSchema);

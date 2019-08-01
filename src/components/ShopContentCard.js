@@ -11,14 +11,14 @@ const StyledCard = styled.div`
   position: relative;
   margin-bottom: 5px;
 `;
-
 const StyledTitle = styled.p`
   color: #0ae5f5;
   margin-bottom: 0px;
   margin-top: 1px;
 `;
-const StyledSubtitle = styled.p`
+const DisplayPoints = styled.div`
   color: white;
+  background-color: #0ae5f5;
   margin-top: 1px;
 `;
 
@@ -36,22 +36,22 @@ const ContentContainer = styled.div`
   margin: 0px;
 `;
 
-function Card({ titleContent, subtitleContent, imageContent, ...props }) {
+function ShopContentCard({ shopTitle, shopPoints, shopImg, ...props }) {
   return (
     <StyledCard {...props}>
-      <ContentImageCard src={imageContent} />
+      <ContentImageCard src={shopImg} />
       <ContentContainer>
-        <StyledTitle>{titleContent}</StyledTitle>
-        <StyledSubtitle>{subtitleContent}</StyledSubtitle>
+        <StyledTitle>{shopTitle}</StyledTitle>
+        <DisplayPoints>{shopPoints}</DisplayPoints>
       </ContentContainer>
+      <button>Gib mir das</button>
     </StyledCard>
   );
 }
-
-Card.propTypes = {
-  titleContent: PropTypes.string.isRequired,
-  subtitleContent: PropTypes.string.isRequired,
-  height: PropTypes.string,
-  width: PropTypes.string
+ShopContentCard.propTypes = {
+  shopTitle: PropTypes.string.isRequired,
+  shopPoints: PropTypes.string.isRequired,
+  shopImg: PropTypes.string.isRequired
 };
-export default Card;
+
+export default ShopContentCard;

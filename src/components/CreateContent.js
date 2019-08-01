@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 //import PropTypes from "prop-types";
+import { postNews, postShop } from "../services";
 
 const InputStyle = styled.div`
   display: flex;
@@ -44,12 +45,12 @@ const SendButton = styled.button`
   background-color: #0ae5f5;
 `;
 
-function CreateContent({ history, onCreate }) {
+function CreateContent({ history }) {
   function handleSubmitNews(event) {
     event.preventDefault();
 
     const form = event.target;
-    const newsCard = {
+    const newsData = {
       titleContent: form.titleContent.value,
       subtitleContent: form.subtitleContent.value,
       desciption: form.desciption.value,
@@ -57,20 +58,27 @@ function CreateContent({ history, onCreate }) {
       video: form.video.value,
       points: form.points.value
     };
-    onCreate(newsCard);
+    // postNews(newsData).then(result => setNewsCards([result, ...newsCards]));
+
+    postNews(newsData);
+
+    // onCreate(newsCard);
     history.replace("/");
-    console.log(newsCard);
+    console.log(newsData);
   }
+
   function handleSubmitShop(event) {
     event.preventDefault();
 
     const formShop = event.target;
-    const shopCard = {
+    const shopData = {
       shopTitle: formShop.shopTitle.value,
-      shopImg: formShop.shopimg.value
+      shopImg: formShop.shopImg.value,
+      shopPoints: formShop.shopPoints.value
     };
-
-    console.log(shopCard);
+    postShop(shopData);
+    history.replace("/shop");
+    console.log(shopData);
   }
 
   return (
@@ -95,14 +103,17 @@ function CreateContent({ history, onCreate }) {
             <StyleInput name="video" placeholder="Video hochladen..." />
             <StyleInput name="points" placeholder="Punkte eingeben..." />
           </Input>
-          <SendButton type="submit">Send</SendButton>
+          <SendButton>Send</SendButton>
         </form>
         <BackendTitle>SHOP</BackendTitle>
 
         <form onSubmit={handleSubmitShop}>
-          <StyleInput name="shopTitle" placeholder="Haupttitle eingeben..." />
-          <StyleInput name="shopImg" placeholder="Bild hochladen..." />
-          <SendButton type="submit">Send</SendButton>
+          <Input>
+            <StyleInput name="shopTitle" placeholder="Haupttitle eingeben..." />
+            <StyleInput name="shopImg" placeholder="Bild hochladen..." />
+            <StyleInput name="shopPoints" placeholder="Punkte eingeben..." />
+          </Input>
+          <SendButton>Send</SendButton>
         </form>
       </InputStyle>
     </>
