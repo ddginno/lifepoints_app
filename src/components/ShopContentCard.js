@@ -18,8 +18,10 @@ const StyledTitle = styled.p`
 `;
 const DisplayPoints = styled.div`
   color: white;
+  border-radius: 50%;
   background-color: #0ae5f5;
   margin-top: 1px;
+  padding: 14px;
 `;
 
 const ContentImageCard = styled.img`
@@ -30,6 +32,8 @@ const ContentImageCard = styled.img`
 `;
 
 const ContentContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   padding: 5px 5px 5px 10px;
   font-family: sans-serif;
   border: 2px solid #979797;

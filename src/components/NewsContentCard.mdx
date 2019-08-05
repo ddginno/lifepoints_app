@@ -1,0 +1,32 @@
+---
+name: NewsContentCard
+menu: Components
+---
+
+import { Props, Playground } from "docz";
+import Card from "./NewsContentCard";
+import GlobalStyles from "../GlobalStyles";
+
+<GlobalStyles />
+
+# NewsContentCard
+
+<Props of={NewsContentCard} />
+
+## Basic usage
+
+<Playground>
+  <Card
+    titleContent="My card"
+    subtitleContent="My content"
+    imageContent="https://www.welt.de/img/sport/mobile170380471/3802506107-ci102l-w1024/FIA-Formula-3-European-Championship-2017-round-10-race-1-Hocke.jpg"
+  />
+</Playground>
+
+<Playground>
+  <Card title="Without tags" content="My content" />
+</Playground>
+
+<Playground>
+  <Card title="Bookmark active" content="My content" bookmarked />
+</Playground>
