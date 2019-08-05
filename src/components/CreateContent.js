@@ -6,17 +6,22 @@ import { postNews, postShop } from "../services";
 const InputStyle = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 5px 5px;
+  background-color: #6d7278;
 `;
 
 const StyleInput = styled.input`
   background-color: #d8d8d8;
   margin-bottom: 3px;
+  padding-top: 3px;
+  font-size: 13px;
 `;
 
 const CardInputDescription = styled.textarea`
   background-color: #d8d8d8;
-  height: 200px;
+  height: 120px;
   margin-bottom: 3px;
+  font-size: 13px;
 `;
 
 const BackendTitle = styled.div`
