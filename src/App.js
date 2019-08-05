@@ -1,16 +1,28 @@
 import React from "react";
-import Card from "./components/Card";
-import Container from "./components/Container";
-import PropTypes from "prop-types";
+
+//import PropTypes from "prop-types";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import News from "./Pages/News";
+import Shop from "./Pages/Shop";
+
+import GlobalStyles from "./GlobalStyles";
+import CreateContent from "./components/CreateContent";
 
 function App() {
   return (
-    <Container className="App">
-      <Card
-        titleContent="LIMITED EDITION"
-        subtitleContent="NIKES NEUER SUPER SCHUH DER SUPERLATIVE"
-      />
-    </Container>
+    <>
+      <Router>
+        <GlobalStyles />
+        <Switch>
+          <Route path="/shop" render={props => <Shop {...props} />} />
+          <Route
+            path="/backend"
+            render={props => <CreateContent {...props} />}
+          />
+          <Route path="/" render={props => <News {...props} />} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

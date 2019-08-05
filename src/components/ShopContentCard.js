@@ -3,20 +3,22 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
   background: #6d7278;
   width: 100%;
-
   border-radius: 1px;
   position: relative;
+  margin-bottom: 5px;
 `;
-
 const StyledTitle = styled.p`
   color: #0ae5f5;
   margin-bottom: 0px;
   margin-top: 1px;
 `;
-const StyledSubtitle = styled.p`
+const DisplayPoints = styled.div`
   color: white;
+  background-color: #0ae5f5;
   margin-top: 1px;
 `;
 
@@ -28,28 +30,28 @@ const ContentImageCard = styled.img`
 `;
 
 const ContentContainer = styled.div`
-  padding-left: 10px;
+  padding: 5px 5px 5px 10px;
   font-family: sans-serif;
   border: 2px solid #979797;
   margin: 0px;
 `;
 
-function Card({ titleContent, subtitleContent }) {
+function ShopContentCard({ shopTitle, shopPoints, shopImg, ...props }) {
   return (
-    <StyledCard onClick>
-      <ContentImageCard alt="" src="Nike.jpg" />
+    <StyledCard {...props}>
+      <ContentImageCard src={shopImg} />
       <ContentContainer>
-        <StyledTitle>{titleContent}</StyledTitle>
-        <StyledSubtitle>{subtitleContent}</StyledSubtitle>
+        <StyledTitle>{shopTitle}</StyledTitle>
+        <DisplayPoints>{shopPoints}</DisplayPoints>
       </ContentContainer>
+      <button>Gib mir das</button>
     </StyledCard>
   );
 }
-
-Card.propTypes = {
-  titleContent: PropTypes.string.isRequired,
-  subtitleContent: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired
+ShopContentCard.propTypes = {
+  shopTitle: PropTypes.string.isRequired,
+  shopPoints: PropTypes.string.isRequired,
+  shopImg: PropTypes.string.isRequired
 };
-export default Card;
+
+export default ShopContentCard;

@@ -1,0 +1,20 @@
+[
+  {
+    "_id": 1,
+    "imageContent": "https://www.11teamsports.com/de-de/Data/Images/Big/nike-air-max-270-sneaker-kids-schwarz-f005-lifestyle-schuhe-kinder-sneakers-aq3196.jpg",
+    "titleContent": "LIMITED",
+    "subtitleContent": "NIKES NEUER SUPER SCHUH DER SUPERLATIVE"
+  },
+  {
+    "_id": 2,
+    "imageContent": "http://de.web.img3.acsta.net/r_640_360/newsv7/19/06/24/10/22/5058589.jpg",
+    "titleContent": "FILM",
+    "subtitleContent": "NEUER MATRIX TEIL KOMMT IN DIE KINOS"
+  },
+  {
+    "_id": 3,
+    "imageContent": "https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/opengraph/tomorrowland.jpg",
+    "titleContent": "FESTIVALS",
+    "subtitleContent": "GEWINNE TOMORROWLAND TICKETS"
+  }
+]
