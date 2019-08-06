@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import GlobalStyles from "./GlobalStyles";
 import CreateContent from "./components/CreateContent";
 import Header from "./components/Header";
+//import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <GlobalStyles />
         <Header />
+
         <Switch>
           <Route
             path="/shop"

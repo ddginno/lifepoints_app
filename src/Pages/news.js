@@ -4,6 +4,7 @@ import Container from "../components/Container";
 //import cards from "./__Mock__/cards";
 //import GlobalStyles from "../GlobalStyles";
 import { getNews } from "../services";
+import UserProfile from "../components/UserProfile";
 
 function News({ cards }) {
   const [news, setNews] = React.useState([]);
@@ -26,7 +27,12 @@ function News({ cards }) {
       />
     );
   }
-  return <Container>{news.map(news => renderCard(news))}</Container>;
+  return (
+    <Container>
+      <UserProfile />
+      {news.map(news => renderCard(news))}
+    </Container>
+  );
 }
 
 export default News;

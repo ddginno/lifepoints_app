@@ -41,28 +41,8 @@ const HeaderLink = styled(Link)`
 `;
 
 function Navbar({ links }) {
-  const [scrollState, setScrollState] = React.useState({
-    visible: true,
-    prevScrollpos: window.pageYOffset
-  });
-
-  function handleScroll() {
-    const currentScrollPos = window.pageYOffset;
-    setScrollState({
-      visible: scrollState.prevScrollpos > currentScrollPos,
-      prevScrollpos: currentScrollPos
-    });
-  }
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollState]);
-
   return (
-    <HeaderNav visible={scrollState.visible}>
+    <HeaderNav>
       {links.map(({ to, icon, title }) => (
         <HeaderLink key={to} to={to}>
           <i className={`fas ${icon}`} />

@@ -20,6 +20,7 @@ try {
 
 app.use("/api/news", require("./api/news"));
 app.use("/api/shop", require("./api/shop"));
+app.use("/api/user", require("./api/user"));
 // setup mongoose
 mongoose
   .connect(process.env.DB_URL, {
