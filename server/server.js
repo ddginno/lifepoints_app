@@ -2,9 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const fs = require("fs");
+const bodyParser = require("body-parser");
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // read .env file
 dotenv.config();

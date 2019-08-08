@@ -15,9 +15,11 @@ router.post("/", (req, res) => {
     .catch(err => res.json(err));
 });
 
-router.patch("/api/user/_:id", (req, res) => {
+router.patch("/:id", (req, res) => {
   const { id } = req.params;
   console.log(id);
+  console.log(req.body);
+
   User.findByIdAndUpdate(id, req.body, { new: true })
     .then(card => res.json(card))
     .catch(err => res.json(err));

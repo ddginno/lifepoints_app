@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
-import NewsDetails from "../components/NewsDetails";
+import { getNews } from "../services";
 
-const StyledCard = styled.div`
+import PropTypes from "prop-types";
+
+const NewsDetailsStyled = styled.div`
   display: flex;
   flex-direction: column;
   background: #6d7278;
@@ -37,50 +38,53 @@ const ContentContainer = styled.div`
   margin: 0px;
 `;
 
-function NewsContentCard({
+const StyledDescription = styled.div`
+  width: 100vw;
+  height: auto;
+`;
+
+const LikeArea = styled.div``;
+const ContentVideo = styled.div``;
+
+function NewsDetails({
   titleContent,
   subtitleContent,
   imageContent,
-  news,
-  ...props
+  descriptionContent,
+  videoContent
 }) {
-  const [showNews, setShowNews] = React.useState(null);
+  const [showNews, setShowNews] = React.useState([]);
 
-  function handleClick(news) {
-    console.log(news);
-    return function() {
-      setShowNews(news);
-    };
-  }
-  if (showNews) {
-    return (
-      <>
-        <NewsDetails news={showNews} />
-        <button onClick={handleBackClick}>Back</button>
-      </>
-    );
-  }
-
-  function handleBackClick() {
-    setShowNews(false);
-  }
+  React.useEffect(() => {
+    getNews().then(result => {
+      const cards = result;
+      console.log(cards);
+      setShowNews(cards);
+    });
+  }, []);
 
   return (
-    <StyledCard {...props} onClick={handleClick(news)} key={news}>
+    <NewsDetailsStyled>
       <ContentImageCard src={imageContent} />
       <ContentContainer>
         <StyledTitle>{titleContent}</StyledTitle>
         <StyledSubtitle>{subtitleContent}</StyledSubtitle>
       </ContentContainer>
-    </StyledCard>
+      <StyledDescription>{descriptionContent}</StyledDescription>
+      <LikeArea>
+        <button>1</button>
+        <button>2</button>
+      </LikeArea>
+      <ContentVideo src={videoContent} />
+    </NewsDetailsStyled>
   );
 }
-
-NewsContentCard.propTypes = {
+NewsDetails.propTypes = {
   imageContent: PropTypes.string.isRequired,
   titleContent: PropTypes.string.isRequired,
   subtitleContent: PropTypes.string.isRequired,
-  height: PropTypes.string,
-  width: PropTypes.string
+  descriptionContent: PropTypes.string.isRequired,
+  videoContent: PropTypes.string.isRequired
 };
-export default NewsContentCard;
+
+export default NewsDetails;

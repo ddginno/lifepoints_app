@@ -1,0 +1,25 @@
+---
+name: NewsDetails
+menu: Components
+---
+
+import { Props, Playground } from "docz";
+import NewsDetails from "./NewsDetails";
+import GlobalStyles from "../GlobalStyles";
+
+<GlobalStyles />
+
+# NewsDetails
+
+<Props of={NewsDetails} />
+
+## Basic usage
+
+<Playground>
+  <NewsDetails
+    titleContent="My NewsDetails"
+    subtitleContent="My content"
+    imageContent="https://www.welt.de/img/sport/mobile170380471/3802506107-ci102l-w1024/FIA-Formula-3-European-Championship-2017-round-10-race-1-Hocke.jpg"
+    descriptionContent="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At v"
+  />
+</Playground>

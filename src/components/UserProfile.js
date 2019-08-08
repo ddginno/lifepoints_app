@@ -91,7 +91,7 @@ function UserProfile({ userName, userPoints, userRank, userImg }) {
     getUser().then(result => {
       const user = result;
       console.log(user);
-      setUserData(user[0]);
+      setUserData(user[1]);
     });
   }, []);
 

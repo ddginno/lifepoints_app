@@ -28,7 +28,16 @@ function Shop() {
   return (
     <Container>
       <UserProfile />
-      {shop.map(shop => renderCard(shop))}
+      {shop
+        .slice()
+        .sort(function(a, b) {
+          if (a.dateCreated < b.dateCreated) {
+            return 1;
+          } else {
+            return -1;
+          }
+        })
+        .map(shop => renderCard(shop))}
     </Container>
   );
 }
