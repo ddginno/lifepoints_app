@@ -6,7 +6,11 @@ const shopCardSchema = new mongoose.Schema({
     required: true
   },
   shopImg: String,
-  shopPoints: String
+  shopPoints: String,
+  dateCreated: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 module.exports = mongoose.model("shop", shopCardSchema);

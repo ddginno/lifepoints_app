@@ -1,7 +1,7 @@
 import React from "react";
 import ShopContentCard from "../components/ShopContentCard";
 import Container from "../components/Container";
-
+import UserProfile from "../components/UserProfile";
 import { getShop } from "../services";
 
 function Shop() {
@@ -25,7 +25,21 @@ function Shop() {
       />
     );
   }
-  return <Container>{shop.map(shop => renderCard(shop))}</Container>;
+  return (
+    <Container>
+      <UserProfile />
+      {shop
+        .slice()
+        .sort(function(a, b) {
+          if (a.dateCreated < b.dateCreated) {
+            return 1;
+          } else {
+            return -1;
+          }
+        })
+        .map(shop => renderCard(shop))}
+    </Container>
+  );
 }
 
 export default Shop;

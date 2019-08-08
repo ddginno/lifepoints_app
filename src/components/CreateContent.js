@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 //import PropTypes from "prop-types";
-import { postNews, postShop } from "../services";
+import { postNews, postShop, postUser } from "../services";
 
 const InputStyle = styled.div`
   display: flex;
@@ -85,6 +85,19 @@ function CreateContent({ history }) {
     history.replace("/shop");
     console.log(shopData);
   }
+  function handleSubmitUser(event) {
+    event.preventDefault();
+
+    const formUser = event.target;
+    const userData = {
+      userName: formUser.userName.value,
+      userImg: formUser.userImg.value,
+      userPoints: formUser.userPoints.value
+    };
+    postUser(userData);
+    history.replace("/news");
+    console.log(userData);
+  }
 
   return (
     <>
@@ -117,6 +130,15 @@ function CreateContent({ history }) {
             <StyleInput name="shopTitle" placeholder="Haupttitle eingeben..." />
             <StyleInput name="shopImg" placeholder="Bild hochladen..." />
             <StyleInput name="shopPoints" placeholder="Punkte eingeben..." />
+          </Input>
+          <SendButton>Send</SendButton>
+        </form>
+        <BackendTitle>USER</BackendTitle>
+        <form onSubmit={handleSubmitUser}>
+          <Input>
+            <StyleInput name="userName" placeholder="Name eingeben..." />
+            <StyleInput name="userImg" placeholder="Bild hochladen..." />
+            <StyleInput name="userPoints" placeholder="Punkte eingeben..." />
           </Input>
           <SendButton>Send</SendButton>
         </form>

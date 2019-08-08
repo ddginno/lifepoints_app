@@ -4,12 +4,13 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import News from "./Pages/News";
 import Shop from "./Pages/Shop";
-import Backend from "./Pages/Backend";
+
 import Navbar from "./components/Navbar";
 
 import GlobalStyles from "./GlobalStyles";
 import CreateContent from "./components/CreateContent";
 import Header from "./components/Header";
+//import NewsDetails from "./components/NewsDetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <GlobalStyles />
         <Header />
+
         <Switch>
           <Route
             path="/shop"
@@ -25,7 +27,7 @@ function App() {
           />
           <Route
             path="/backend"
-            render={props => <CreateContent {...props} component={Backend} />}
+            render={props => <CreateContent {...props} />}
           />
           <Route
             path="/"
