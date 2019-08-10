@@ -11,15 +11,15 @@ export default createGlobalStyle`
 
     html, body {
         margin: 0;
-         padding-top:80px;
-         padding-bottom:28px;
-        
+         
         
         
     }
 
     body {
         font-family: sans-serif;
+        padding-top:80px;
+         padding-bottom:58px;
         
    }
    input, textarea, button, select, a {

@@ -9,6 +9,13 @@ router.get("/", (req, res) => {
     .catch(err => res.json(err));
 });
 
+router.get("/get-by-id/:id", (req, res) => {
+  console.log(req.params.id);
+  News.findById(req.params.id)
+    .then(item => res.json(item))
+    .catch(err => res.json(err));
+});
+
 router.post("/", (req, res) => {
   News.create(req.body)
     .then(card => res.json(card))

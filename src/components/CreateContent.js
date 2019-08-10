@@ -58,16 +58,14 @@ function CreateContent({ history }) {
     const newsData = {
       titleContent: form.titleContent.value,
       subtitleContent: form.subtitleContent.value,
-      desciption: form.desciption.value,
+      description: form.description.value,
       imageContent: form.imageContent.value,
       video: form.video.value,
       points: form.points.value
     };
-    // postNews(newsData).then(result => setNewsCards([result, ...newsCards]));
 
     postNews(newsData);
 
-    // onCreate(newsCard);
     history.replace("/");
     console.log(newsData);
   }
@@ -114,7 +112,7 @@ function CreateContent({ history }) {
               placeholder="Untertitle eingeben..."
             />
             <CardInputDescription
-              name="desciption"
+              name="description"
               placeholder="Text eingeben..."
             />
             <StyleInput name="imageContent" placeholder="Bild hochladen..." />

@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { getNews } from "../services";
-
-import PropTypes from "prop-types";
+import { getNewsById } from "../services";
+import Header from "../components/Header";
 
 const NewsDetailsStyled = styled.div`
   display: flex;
   flex-direction: column;
-  background: #6d7278;
+  background: #404447;
   width: 100%;
   border-radius: 1px;
   position: relative;
@@ -34,57 +33,76 @@ const ContentImageCard = styled.img`
 const ContentContainer = styled.div`
   padding: 5px 5px 5px 10px;
   font-family: sans-serif;
-  border: 2px solid #979797;
+
   margin: 0px;
+  background-image: linear-gradient(to bottom, transparent 0%, black 150%);
 `;
 
 const StyledDescription = styled.div`
   width: 100vw;
   height: auto;
+  border: 2px solid #0ae5f5;
+  padding: 5px 5px 5px 10px;
+  color: white;
 `;
 
-const LikeArea = styled.div``;
-const ContentVideo = styled.div``;
+const ContentVideo = styled.div`
+  width: "100%";
+  height: "auto";
+`;
 
-function NewsDetails({
-  titleContent,
-  subtitleContent,
-  imageContent,
-  descriptionContent,
-  videoContent
-}) {
+const LikeArea = styled.div`
+  display: flex;
+  width: auto;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+`;
+const StyleButton = styled.button`
+  width: 60px;
+  height: 60px;
+  border: solid 2px #0ae5f5;
+  font-size: 35px;
+  margin: 0px 2px;
+`;
+
+function NewsDetails({ match }) {
   const [showNews, setShowNews] = React.useState([]);
-
+  console.log(match.params.id);
   React.useEffect(() => {
-    getNews().then(result => {
-      const cards = result;
-      console.log(cards);
-      setShowNews(cards);
-    });
+    loadNews();
   }, []);
+
+  function loadNews() {
+    getNewsById(match.params.id).then(result => {
+      setShowNews(result);
+    });
+  }
 
   return (
     <NewsDetailsStyled>
-      <ContentImageCard src={imageContent} />
+      <Header />
+
+      <ContentImageCard src={showNews.imageContent} />
       <ContentContainer>
-        <StyledTitle>{titleContent}</StyledTitle>
-        <StyledSubtitle>{subtitleContent}</StyledSubtitle>
+        <StyledTitle>{showNews.titleContent}</StyledTitle>
+        <StyledSubtitle>{showNews.subtitleContent}</StyledSubtitle>
       </ContentContainer>
-      <StyledDescription>{descriptionContent}</StyledDescription>
+      <StyledDescription>{showNews.description}</StyledDescription>
       <LikeArea>
-        <button>1</button>
-        <button>2</button>
+        <StyleButton>
+          <i class="far fa-thumbs-up" />
+        </StyleButton>
+        <StyleButton>
+          <i class="far fa-thumbs-down" />
+        </StyleButton>
       </LikeArea>
-      <ContentVideo src={videoContent} />
+
+      <ContentVideo>
+        <iframe title="youtube" width="375" height="265" src={showNews.video} />
+      </ContentVideo>
     </NewsDetailsStyled>
   );
 }
-NewsDetails.propTypes = {
-  imageContent: PropTypes.string.isRequired,
-  titleContent: PropTypes.string.isRequired,
-  subtitleContent: PropTypes.string.isRequired,
-  descriptionContent: PropTypes.string.isRequired,
-  videoContent: PropTypes.string.isRequired
-};
 
 export default NewsDetails;
