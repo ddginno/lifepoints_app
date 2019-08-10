@@ -1,38 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NewsContentCard from "../components/NewsContentCard";
 import Container from "../components/Container";
-//import cards from "./__Mock__/cards";
-//import GlobalStyles from "../GlobalStyles";
-import { getNews } from "../services";
+import styled from "styled-components";
 import UserProfile from "../components/UserProfile";
+import Header from "../components/Header";
 
-function News({ cards }) {
-  const [news, setNews] = React.useState([]);
-  const [showNews, setShowNews] = React.useState([]);
-
-  React.useEffect(() => {
-    getNews().then(result => {
-      const cards = result;
-      console.log(cards);
-      setNews(cards);
-      setShowNews(cards);
-    });
-  }, []);
-
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+function News({ news }) {
   function renderCard(news) {
     return (
-      <NewsContentCard
-        onClick={() => console.log("text")}
-        key={news._id}
-        imageContent={news.imageContent}
-        titleContent={news.titleContent}
-        subtitleContent={news.subtitleContent}
-      />
+      <StyledLink to={`/news/${news._id}`}>
+        <NewsContentCard
+          /*key={news._id}*/
+          imageContent={news.imageContent}
+          titleContent={news.titleContent}
+          subtitleContent={news.subtitleContent}
+        />
+      </StyledLink>
     );
   }
   return (
     <Container>
       <UserProfile />
+      <Header />
       {news
         .slice()
         .sort(function(a, b) {

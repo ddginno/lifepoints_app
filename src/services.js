@@ -10,6 +10,10 @@ export function getNews() {
   return fetch("/api/news").then(res => res.json());
 }
 
+export function getNewsById(id) {
+  return fetch(`/api/news/get-by-id/${id}`).then(res => res.json());
+}
+
 export function postNews(data) {
   return fetchNews("POST", data);
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import NewsDetails from "../components/NewsDetails";
 
 const StyledCard = styled.div`
   display: flex;
@@ -41,32 +40,10 @@ function NewsContentCard({
   titleContent,
   subtitleContent,
   imageContent,
-  news,
   ...props
 }) {
-  const [showNews, setShowNews] = React.useState(null);
-
-  function handleClick(news) {
-    console.log(news);
-    return function() {
-      setShowNews(news);
-    };
-  }
-  if (showNews) {
-    return (
-      <>
-        <NewsDetails news={showNews} />
-        <button onClick={handleBackClick}>Back</button>
-      </>
-    );
-  }
-
-  function handleBackClick() {
-    setShowNews(false);
-  }
-
   return (
-    <StyledCard {...props} onClick={handleClick(news)} key={news}>
+    <StyledCard {...props}>
       <ContentImageCard src={imageContent} />
       <ContentContainer>
         <StyledTitle>{titleContent}</StyledTitle>

@@ -11,8 +11,8 @@ const NavTitle = styled.p`
 
 const HeaderNav = styled.header`
   height: 60px;
-  border-top: 2px solid #444;
-  background: #6d7278;
+  border-top: 2px solid #979797;
+  background: #404447;
   width: 100%;
   display: flex;
   align-items: center;
@@ -20,18 +20,13 @@ const HeaderNav = styled.header`
   overflow: hidden;
   position: fixed;
   bottom: 0;
-  z-index:1;
-  
-  /*opacity: ${props => (props.visible ? 2 : 2)};*/
-  transition: all 0.5s ease;
+  z-index: 1;
 `;
 
 const HeaderLink = styled(Link)`
   float: left;
   color: whitesmoke;
-
   text-align: center;
-  /* padding: 30px 9px; */
   text-decoration: none;
   font-size: 28px;
   margin: 18px;
