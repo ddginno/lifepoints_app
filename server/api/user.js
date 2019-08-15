@@ -17,8 +17,6 @@ router.post("/", (req, res) => {
 
 router.patch("/:id", (req, res) => {
   const { id } = req.params;
-  // console.log(id);
-  // console.log(req.body);
 
   User.findByIdAndUpdate(id, req.body, { new: true })
     .then(card => res.json(card))

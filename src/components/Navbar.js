@@ -30,7 +30,7 @@ const HeaderLink = styled(Link)`
   text-decoration: none;
   font-size: 28px;
   margin: 18px;
-  &:hover {
+  &:active {
     color: #0ae5f5;
   }
 `;

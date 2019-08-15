@@ -6,7 +6,11 @@ const UserData = new mongoose.Schema({
     required: true
   },
   userImg: String,
-  userPoints: String
+  userPoints: Number,
+  confirmed: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = mongoose.model("user", UserData);

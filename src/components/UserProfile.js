@@ -65,7 +65,7 @@ const ProfileContentRight = styled.div`
 
 const ProfileContentMid = styled.div``;
 
-function UserProfile({ userName, userPoints, userRank, userImg }) {
+function UserProfile() {
   const [scrollState, setScrollState] = React.useState({
     visible: true,
     prevScrollpos: window.pageYOffset
@@ -86,12 +86,15 @@ function UserProfile({ userName, userPoints, userRank, userImg }) {
     };
   });
 
-  const [userData, setUserData] = React.useState([]);
+  const [userData, setUserData] = React.useState({});
   React.useEffect(() => {
     getUser().then(result => {
-      const user = result;
-      console.log(user);
-      setUserData(user[1]);
+      const user = result && result[0];
+      if (!user) {
+        return;
+      }
+
+      setUserData(user);
     });
   }, []);
 
@@ -113,10 +116,8 @@ function UserProfile({ userName, userPoints, userRank, userImg }) {
         <ProfileRankStyle
           alt="UserImage"
           src="https://image.shutterstock.com/image-vector/military-rank-icon-trendy-flat-260nw-1219236889.jpg"
-        >
-          {userImg}
-        </ProfileRankStyle>
-        <RankFont>{userRank}456</RankFont>
+        />
+        <RankFont>{userData.userRank}456</RankFont>
       </ProfileContentRight>
     </ProfileDisplay>
   );

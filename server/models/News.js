@@ -9,7 +9,7 @@ const newsSchema = new mongoose.Schema({
   imageContent: String,
   description: String,
   video: String,
-  points: String,
+  points: Number,
   dateCreated: {
     type: Date,
     default: Date.now()

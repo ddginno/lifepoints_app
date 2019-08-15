@@ -1,17 +1,15 @@
 import React from "react";
-
+import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import News from "./Pages/News";
 import Shop from "./Pages/Shop";
-
 import Navbar from "./components/Navbar";
-
 import GlobalStyles from "./GlobalStyles";
 import CreateContent from "./components/CreateContent";
-
 import { getNews } from "./services";
-
 import NewsDetails from "./components/NewsDetails";
+import Ranking from "./Pages/Ranking";
+import QrCode from "./Pages/QrCode";
 
 function App() {
   const [news, setNews] = React.useState([]);
@@ -33,6 +31,8 @@ function App() {
         <GlobalStyles />
 
         <Switch>
+          <Route path="/qrcode" render={props => <QrCode {...props} />} />
+          <Route path="/ranking" render={props => <Ranking {...props} />} />
           <Route
             path="/shop"
             render={props => <Shop {...props} />}
@@ -48,15 +48,6 @@ function App() {
           />
           <Route path="/" render={props => <News news={news} {...props} />} />
         </Switch>
-        <Navbar
-          links={[
-            { to: "/", icon: "fa-newspaper", title: "News" },
-            { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
-            { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
-            { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
-            { to: "/backend", icon: "fa-users-cog", title: "Backend" }
-          ]}
-        />
       </Router>
     </>
   );

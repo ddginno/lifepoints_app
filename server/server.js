@@ -21,9 +21,6 @@ try {
   };
 } catch (error) {}
 
-app.use("/api/news", require("./api/news"));
-app.use("/api/shop", require("./api/shop"));
-app.use("/api/user", require("./api/user"));
 // setup mongoose
 mongoose
   .connect(process.env.DB_URL, {
@@ -31,5 +28,9 @@ mongoose
   })
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error(err));
+
+app.use("/api/news", require("./api/news"));
+app.use("/api/shop", require("./api/shop"));
+app.use("/api/user", require("./api/user"));
 
 app.listen(4000);
