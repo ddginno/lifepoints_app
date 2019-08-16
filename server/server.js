@@ -33,4 +33,4 @@ app.use("/api/news", require("./api/news"));
 app.use("/api/shop", require("./api/shop"));
 app.use("/api/user", require("./api/user"));
 
-app.listen(process.env.PORT || 4000);
+app.listen(4000);
