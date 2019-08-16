@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const fs = require("fs");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -33,4 +34,6 @@ app.use("/api/news", require("./api/news"));
 app.use("/api/shop", require("./api/shop"));
 app.use("/api/user", require("./api/user"));
 
-app.listen(4000);
+app.use(express.static(path.join(__dirname, "build")));
+
+app.listen(process.env.PORT || 4000);
