@@ -40,6 +40,13 @@ const ContentContainer = styled.div`
   margin: 0px;
 `;
 
+const StyledButton = styled.button`
+  width: 100%;
+  height: 30px;
+  color: white;
+  font-size: 17px;
+`;
+
 function ShopContentCard({ shopTitle, shopPoints, shopImg, ...props }) {
   return (
     <StyledCard {...props}>
@@ -48,7 +55,7 @@ function ShopContentCard({ shopTitle, shopPoints, shopImg, ...props }) {
         <StyledTitle>{shopTitle}</StyledTitle>
         <DisplayPoints>{shopPoints}</DisplayPoints>
       </ContentContainer>
-      <button>Gib mir das</button>
+      <StyledButton>Gib mir das</StyledButton>
     </StyledCard>
   );
 }

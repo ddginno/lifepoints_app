@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { getNewsById } from "../services";
+import { getNewsById, patchUser, getUser } from "../services";
 import Header from "../components/Header";
 
 const NewsDetailsStyled = styled.div`
@@ -8,9 +8,11 @@ const NewsDetailsStyled = styled.div`
   flex-direction: column;
   background: #404447;
   width: 100%;
+  height: 100%;
   border-radius: 1px;
   position: relative;
   margin-bottom: 5px;
+  overflow: auto;
 `;
 
 const StyledTitle = styled.p`
@@ -49,6 +51,7 @@ const StyledDescription = styled.div`
 const ContentVideo = styled.div`
   width: "100%";
   height: "auto";
+  margin-bottom: 20px;
 `;
 
 const LikeArea = styled.div`
@@ -66,9 +69,37 @@ const StyleButton = styled.button`
   margin: 0px 2px;
 `;
 
+const StyleBackButton = styled.div`
+  position: top, left;
+  font-size: 30px;
+  width: 20px;
+  height: 20px;
+  color: black;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  height: 100%;
+  grid-template-rows: 80px auto;
+`;
+
 function NewsDetails({ match }) {
   const [showNews, setShowNews] = React.useState([]);
-  console.log(match.params.id);
+  const [Points, setPoints] = React.useState([]);
+
+  const CurrentUserId = "5d49555ad20398c00e35941e";
+  console.log(CurrentUserId);
+  React.useEffect(() => {
+    loadPoints();
+  }, []);
+  function loadPoints() {
+    getUser().then(result => {
+      const index = result.findIndex(user => user._id === CurrentUserId);
+      const user = result[index];
+      setPoints(user.userPoints);
+    });
+  }
+
   React.useEffect(() => {
     loadNews();
   }, []);
@@ -79,29 +110,55 @@ function NewsDetails({ match }) {
     });
   }
 
+  function handleClick(event) {
+    event.preventDefault();
+
+    patchUser({
+      userPoints: Points + showNews.points,
+      id: CurrentUserId
+    });
+
+    return;
+  }
+
   return (
-    <NewsDetailsStyled>
-      <Header />
+    <Grid>
+      <div>
+        <Header
+          text={
+            <StyleBackButton>
+              <i className="fas fa-chevron-left" />
+            </StyleBackButton>
+          }
+        />
+      </div>
 
-      <ContentImageCard src={showNews.imageContent} />
-      <ContentContainer>
-        <StyledTitle>{showNews.titleContent}</StyledTitle>
-        <StyledSubtitle>{showNews.subtitleContent}</StyledSubtitle>
-      </ContentContainer>
-      <StyledDescription>{showNews.description}</StyledDescription>
-      <LikeArea>
-        <StyleButton>
-          <i class="far fa-thumbs-up" />
-        </StyleButton>
-        <StyleButton>
-          <i class="far fa-thumbs-down" />
-        </StyleButton>
-      </LikeArea>
+      <NewsDetailsStyled>
+        <ContentImageCard src={showNews.imageContent} />
+        <ContentContainer>
+          <StyledTitle>{showNews.titleContent}</StyledTitle>
+          <StyledSubtitle>{showNews.subtitleContent}</StyledSubtitle>
+        </ContentContainer>
+        <StyledDescription>{showNews.description}</StyledDescription>
+        <LikeArea>
+          <StyleButton onClick={handleClick}>
+            <i className="far fa-thumbs-up" />
+          </StyleButton>
+          <StyleButton onClick={handleClick}>
+            <i className="far fa-thumbs-down" />
+          </StyleButton>
+        </LikeArea>
 
-      <ContentVideo>
-        <iframe title="youtube" width="375" height="265" src={showNews.video} />
-      </ContentVideo>
-    </NewsDetailsStyled>
+        <ContentVideo>
+          <iframe
+            title="youtube"
+            width="375"
+            height="265"
+            src={showNews.video}
+          />
+        </ContentVideo>
+      </NewsDetailsStyled>
+    </Grid>
   );
 }
 

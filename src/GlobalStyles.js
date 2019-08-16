@@ -7,10 +7,11 @@ export default createGlobalStyle`
        
        
 }
-    }
+    
 
     html, body {
         margin: 0;
+        
          
         
         
@@ -18,8 +19,6 @@ export default createGlobalStyle`
 
     body {
         font-family: sans-serif;
-        padding-top:80px;
-         padding-bottom:58px;
         
    }
    input, textarea, button, select, a {

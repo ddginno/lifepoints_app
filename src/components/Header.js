@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
+import ButtonLink from "./ButtonLink";
 //import { Link } from "react-router-dom";
 //import PropTypes from "prop-types";
 
@@ -27,10 +28,15 @@ const Kreis = styled.div`
   padding-top: 5px;
   padding-left: 4px;
 `;
-
-function Header() {
+const Icon = styled.div`
+  position: absolute;
+  left: 10px;
+`;
+function Header({ text }) {
   return (
     <HeaderStyle>
+      <Icon> {text && <ButtonLink to="/">{text}</ButtonLink>}</Icon>
+
       <Kreis>
         <Logo />
       </Kreis>

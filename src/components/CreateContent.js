@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 //import PropTypes from "prop-types";
 import { postNews, postShop, postUser } from "../services";
+import Navbar from "../components/Navbar";
 
 const InputStyle = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px 5px;
   background-color: #6d7278;
+  overflow: auto;
 `;
 
 const StyleInput = styled.input`
@@ -48,6 +50,12 @@ const SendButton = styled.button`
   width: 80px;
   height: 20px;
   background-color: #0ae5f5;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 60px;
 `;
 
 function CreateContent({ history }) {
@@ -98,7 +106,7 @@ function CreateContent({ history }) {
   }
 
   return (
-    <>
+    <Grid>
       <InputStyle>
         <BackendTitle>News</BackendTitle>
         <form onSubmit={handleSubmitNews}>
@@ -141,7 +149,16 @@ function CreateContent({ history }) {
           <SendButton>Send</SendButton>
         </form>
       </InputStyle>
-    </>
+      <Navbar
+        links={[
+          { to: "/", icon: "fa-newspaper", title: "News" },
+          { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
+          { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
+          { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
+          { to: "/backend", icon: "fa-users-cog", title: "Backend" }
+        ]}
+      />
+    </Grid>
   );
 }
 

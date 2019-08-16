@@ -31,9 +31,13 @@ function fetchNews(method, data, id = "") {
 export function getUser() {
   return fetch("/api/user").then(res => res.json());
 }
+export function getUserById(id) {
+  return fetch(`/api/user/get-by-id/${id}`).then(res => res.json());
+}
 
-export function patchUser(data) {
-  return fetchUser("PATCH", data);
+// patchUser({userPoints: user.userPoints + news.points })
+export function patchUser(data, id = "5d49555ad20398c00e35941e") {
+  return fetchUser("PATCH", data, id);
 }
 
 export function postUser(data) {
