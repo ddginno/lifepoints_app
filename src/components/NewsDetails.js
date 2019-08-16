@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { getNewsById, patchUser, getUser } from "../services";
 import Header from "../components/Header";
-import UserProfile from "./UserProfile";
 
 const NewsDetailsStyled = styled.div`
   display: flex;
@@ -86,19 +85,21 @@ const Grid = styled.div`
 
 function NewsDetails({ match }) {
   const [showNews, setShowNews] = React.useState([]);
-  const [userPoints, setUserPoints] = React.useState([]);
-  console.log(userPoints);
+  const [Points, setPoints] = React.useState([]);
+
+  const CurrentUserId = "5d49555ad20398c00e35941e";
+  console.log(CurrentUserId);
   React.useEffect(() => {
     loadPoints();
   }, []);
-
   function loadPoints() {
     getUser().then(result => {
-      setUserPoints(result);
+      const index = result.findIndex(user => user._id === CurrentUserId);
+      const user = result[index];
+      setPoints(user.userPoints);
     });
   }
 
-  console.log(match.params.id);
   React.useEffect(() => {
     loadNews();
   }, []);
@@ -113,8 +114,8 @@ function NewsDetails({ match }) {
     event.preventDefault();
 
     patchUser({
-      userPoints: userPoints.userPoints + showNews.points,
-      id: "5d49555ad20398c00e35941e"
+      userPoints: Points + showNews.points,
+      id: CurrentUserId
     });
 
     return;
@@ -126,7 +127,7 @@ function NewsDetails({ match }) {
         <Header
           text={
             <StyleBackButton>
-              <i class="fas fa-chevron-left" />
+              <i className="fas fa-chevron-left" />
             </StyleBackButton>
           }
         />
@@ -141,10 +142,10 @@ function NewsDetails({ match }) {
         <StyledDescription>{showNews.description}</StyledDescription>
         <LikeArea>
           <StyleButton onClick={handleClick}>
-            <i class="far fa-thumbs-up" />
+            <i className="far fa-thumbs-up" />
           </StyleButton>
           <StyleButton onClick={handleClick}>
-            <i class="far fa-thumbs-down" />
+            <i className="far fa-thumbs-down" />
           </StyleButton>
         </LikeArea>
 

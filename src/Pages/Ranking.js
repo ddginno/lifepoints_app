@@ -25,12 +25,6 @@ const RankDark = styled.div`
   background-color: #404447;
   margin-top: 1px;
 `;
-const Rank = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 75px;
-`;
 
 const RankBox = styled.div`
   display: flex;

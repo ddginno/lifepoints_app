@@ -18,7 +18,6 @@ function Shop() {
   React.useEffect(() => {
     getShop().then(result => {
       const cards = result;
-      console.log(cards);
       setShop(cards);
     });
   }, []);

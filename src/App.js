@@ -1,9 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import News from "./Pages/News";
 import Shop from "./Pages/Shop";
-import Navbar from "./components/Navbar";
 import GlobalStyles from "./GlobalStyles";
 import CreateContent from "./components/CreateContent";
 import { getNews } from "./services";
@@ -20,7 +18,6 @@ function App() {
 
   function loadNews() {
     getNews().then(result => {
-      console.log(result);
       setNews(result);
     });
   }
