@@ -30,10 +30,10 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error(err));
 
+app.use(express.static(path.join(__dirname, "../build")));
+
 app.use("/api/news", require("./api/news"));
 app.use("/api/shop", require("./api/shop"));
 app.use("/api/user", require("./api/user"));
-
-app.use(express.static(path.join(__dirname, "build")));
 
 app.listen(process.env.PORT || 4000);

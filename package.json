@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "run-p react server",
+    "prestart": "react-scripts build",
     "react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
