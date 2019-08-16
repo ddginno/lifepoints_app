@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "server": "nodemon server/server.js"
+    "server": "nodemon server/server.js",
+    "postinstall": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
