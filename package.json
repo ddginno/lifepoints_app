@@ -21,9 +21,7 @@
     "styled-components": "^4.3.2"
   },
   "scripts": {
-    "start": "run-p prod server",
-    "dev": "run-p react server",
-    "prod": "serve -s build -l 3000",
+    "start": "run-p react server",
     "react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
