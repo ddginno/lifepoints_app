@@ -62,6 +62,9 @@ const LikeArea = styled.div`
   align-items: center;
 `;
 const StyleButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
   border: solid 2px #0ae5f5;
@@ -73,7 +76,7 @@ const StyleButton = styled.button`
   }
 `;
 
-const StyleBackButton = styled.div`
+const StyleBackButton = styled.button`
   position: top, left;
   font-size: 30px;
   width: 20px;

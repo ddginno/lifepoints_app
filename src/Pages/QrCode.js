@@ -25,7 +25,7 @@ function QrCode() {
       </div>
       <Content>
         <QRCode
-          size="150"
+          size="120"
           value="https://mysterious-sierra-56038.herokuapp.com"
         />{" "}
       </Content>
