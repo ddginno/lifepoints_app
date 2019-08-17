@@ -49,8 +49,8 @@ const StyledDescription = styled.div`
 `;
 
 const ContentVideo = styled.div`
-  width: "100%";
-  height: "auto";
+  position: relative;
+  padding-top: 56.25%;
   margin-bottom: 20px;
 `;
 
@@ -67,6 +67,10 @@ const StyleButton = styled.button`
   border: solid 2px #0ae5f5;
   font-size: 35px;
   margin: 0px 2px;
+
+  & :disabled {
+    color: red;
+  }
 `;
 
 const StyleBackButton = styled.div`
@@ -83,6 +87,13 @@ const Grid = styled.div`
   grid-template-rows: 80px auto;
 `;
 
+const StyledIFrame = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
 function NewsDetails({ match }) {
   const [showNews, setShowNews] = React.useState([]);
   const [Points, setPoints] = React.useState([]);
@@ -142,25 +153,17 @@ function NewsDetails({ match }) {
         </ContentContainer>
         <StyledDescription>{showNews.description}</StyledDescription>
         <LikeArea>
-          {!disabled && (
-            <StyleButton onClick={handleClick}>
-              <i className="far fa-thumbs-up" />
-            </StyleButton>
-          )}
-          {!disabled && (
-            <StyleButton onClick={handleClick}>
-              <i className="far fa-thumbs-down" />
-            </StyleButton>
-          )}
+          <StyleButton disabled={disabled} onClick={handleClick}>
+            <i className="far fa-thumbs-up" />
+          </StyleButton>
+
+          <StyleButton disabled={disabled} onClick={handleClick}>
+            <i className="far fa-thumbs-down" />
+          </StyleButton>
         </LikeArea>
 
         <ContentVideo>
-          <iframe
-            title="youtube"
-            width="375"
-            height="265"
-            src={showNews.video}
-          />
+          <StyledIFrame src={showNews.video} frameborder="0" allowfullscreen />
         </ContentVideo>
       </NewsDetailsStyled>
     </Grid>

@@ -24,7 +24,10 @@ function QrCode() {
         <Headers />
       </div>
       <Content>
-        <QRCode size="150" value="http://lifepoints.de" />{" "}
+        <QRCode
+          size="150"
+          value="https://mysterious-sierra-56038.herokuapp.com"
+        />{" "}
       </Content>
       <Navbar
         links={[
