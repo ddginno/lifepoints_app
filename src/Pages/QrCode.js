@@ -24,7 +24,7 @@ function QrCode() {
         <Headers />
       </div>
       <Content>
-        <QRCode size="170" value="http://lifepoints.de" />{" "}
+        <QRCode size="150" value="http://lifepoints.de" />{" "}
       </Content>
       <Navbar
         links={[

@@ -86,6 +86,7 @@ const Grid = styled.div`
 function NewsDetails({ match }) {
   const [showNews, setShowNews] = React.useState([]);
   const [Points, setPoints] = React.useState([]);
+  const [disabled, setDisabled] = React.useState(false);
 
   const CurrentUserId = "5d49555ad20398c00e35941e";
   console.log(CurrentUserId);
@@ -112,7 +113,7 @@ function NewsDetails({ match }) {
 
   function handleClick(event) {
     event.preventDefault();
-
+    setDisabled(true);
     patchUser({
       userPoints: Points + showNews.points,
       id: CurrentUserId
@@ -141,12 +142,16 @@ function NewsDetails({ match }) {
         </ContentContainer>
         <StyledDescription>{showNews.description}</StyledDescription>
         <LikeArea>
-          <StyleButton onClick={handleClick}>
-            <i className="far fa-thumbs-up" />
-          </StyleButton>
-          <StyleButton onClick={handleClick}>
-            <i className="far fa-thumbs-down" />
-          </StyleButton>
+          {!disabled && (
+            <StyleButton onClick={handleClick}>
+              <i className="far fa-thumbs-up" />
+            </StyleButton>
+          )}
+          {!disabled && (
+            <StyleButton onClick={handleClick}>
+              <i className="far fa-thumbs-down" />
+            </StyleButton>
+          )}
         </LikeArea>
 
         <ContentVideo>
