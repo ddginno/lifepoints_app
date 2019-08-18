@@ -76,12 +76,15 @@ const StyleButton = styled.button`
   }
 `;
 
-const StyleBackButton = styled.button`
+const StyleBackButton = styled.div`
   position: top, left;
+  height: 30px;
+  width: 30px;
   font-size: 30px;
   width: 20px;
   height: 20px;
   color: black;
+  background-color: transparent;
 `;
 
 const Grid = styled.div`
