@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const StyleButton = styled.div`
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+`;
 
 function ButtonLink({ children, to, ...other }) {
   return (
     <Link to={to}>
-      <button {...other}>{children}</button>
+      <StyleButton {...other}>{children}</StyleButton>
     </Link>
   );
 }
