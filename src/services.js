@@ -1,3 +1,4 @@
+import axios from "axios";
 export function getFromLocal(name) {
   return JSON.parse(localStorage.getItem(name));
 }
@@ -16,6 +17,10 @@ export function getNewsById(id) {
 
 export function postNews(data) {
   return fetchNews("POST", data);
+}
+
+export function patchNews(data) {
+  return axios.patch(`/api/news/${data.id}`, data);
 }
 
 function fetchNews(method, data, id = "") {
@@ -57,7 +62,9 @@ function fetchUser(method, data, id = "") {
 export function getShop() {
   return fetch("/api/shop").then(res => res.json());
 }
-
+export function getShopNewsById(id) {
+  return fetch(`/api/shop/get-by-id/${id}`).then(res => res.json());
+}
 export function postShop(data) {
   return fetchShop("POST", data);
 }

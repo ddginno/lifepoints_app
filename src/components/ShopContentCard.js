@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { getShop, patchUser, getUser } from "../services";
 
 const StyledCard = styled.div`
   display: flex;
@@ -47,7 +48,13 @@ const StyledButton = styled.button`
   font-size: 17px;
 `;
 
-function ShopContentCard({ shopTitle, shopPoints, shopImg, ...props }) {
+function ShopContentCard({
+  shopTitle,
+  shopPoints,
+  shopImg,
+  handleClick,
+  ...props
+}) {
   return (
     <StyledCard {...props}>
       <ContentImageCard src={shopImg} />
@@ -55,7 +62,7 @@ function ShopContentCard({ shopTitle, shopPoints, shopImg, ...props }) {
         <StyledTitle>{shopTitle}</StyledTitle>
         <DisplayPoints>{shopPoints}</DisplayPoints>
       </ContentContainer>
-      <StyledButton>Gib mir das</StyledButton>
+      <StyledButton onClick={handleClick}>Gib mir das</StyledButton>
     </StyledCard>
   );
 }

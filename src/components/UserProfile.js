@@ -9,10 +9,12 @@ const ProfileImage = styled.img`
   border-radius: 50%;
   border: solid 2px #0ae5f5;
   box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.75);
+  object-fit: cover;
 `;
 
 const ProfileRankStyle = styled.img`
   width: 30px;
+  object-fit: cover;
 `;
 
 const ShopProfilePoints = styled.div`
@@ -86,15 +88,24 @@ function UserProfile() {
     };
   });
 
-  const [userData, setUserData] = React.useState({});
+  const [userData, setUserData] = React.useState([]);
+  const CurrentUserId = "5d49555ad20398c00e35941e";
+
   React.useEffect(() => {
     getUser().then(result => {
-      const user = result && result[0];
-      if (!user) {
-        return;
-      }
+      const User = result
+        .sort(function(a, b) {
+          return b.userPoints - a.userPoints;
+        })
+        .map((user, index) => {
+          return {
+            ...user,
+            rank: index + 1
+          };
+        })
+        .find(user => user._id === CurrentUserId);
 
-      setUserData(user);
+      setUserData(User);
     });
   }, []);
 
@@ -110,14 +121,14 @@ function UserProfile() {
         <ProgressBar>
           <Progress />
         </ProgressBar>
-        <ShopProfilePoints>250/1000</ShopProfilePoints>
+        <ShopProfilePoints>{userData.userPoints}/10000</ShopProfilePoints>
       </ProfileContentMid>
       <ProfileContentRight>
         <ProfileRankStyle
           alt="UserImage"
           src="https://image.shutterstock.com/image-vector/military-rank-icon-trendy-flat-260nw-1219236889.jpg"
         />
-        <RankFont>{userData.userRank}456</RankFont>
+        <RankFont>{userData.rank}</RankFont>
       </ProfileContentRight>
     </ProfileDisplay>
   );

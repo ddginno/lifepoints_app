@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { getNewsById, patchUser, getUser } from "../services";
+import { getNewsById, patchUser, getUser, patchNews } from "../services";
 import Header from "../components/Header";
 
 const NewsDetailsStyled = styled.div`
@@ -105,8 +105,17 @@ function NewsDetails({ match }) {
   const [Points, setPoints] = React.useState([]);
   const [disabled, setDisabled] = React.useState(false);
 
+  React.useEffect(() => {
+    setDisabled(
+      showNews.likedByUsers &&
+        showNews.likedByUsers.includes("5d49555ad20398c00e35941e")
+    );
+  }, [showNews.likedByUsers]);
+
+  console.log(showNews.likedByUsers);
+
   const CurrentUserId = "5d49555ad20398c00e35941e";
-  console.log(CurrentUserId);
+
   React.useEffect(() => {
     loadPoints();
   }, []);
@@ -129,11 +138,17 @@ function NewsDetails({ match }) {
   }
 
   function handleClick(event) {
+    const id = showNews._id;
+
     event.preventDefault();
     setDisabled(true);
     patchUser({
       userPoints: Points + showNews.points,
       id: CurrentUserId
+    });
+    patchNews({
+      likedByUser: CurrentUserId,
+      id: id
     });
 
     return;
@@ -159,7 +174,11 @@ function NewsDetails({ match }) {
         </ContentContainer>
         <StyledDescription>{showNews.description}</StyledDescription>
         <LikeArea>
-          <StyleButton disabled={disabled} onClick={handleClick}>
+          <StyleButton
+            disabled={disabled}
+            value={showNews._id}
+            onClick={handleClick}
+          >
             <i className="far fa-thumbs-up" />
           </StyleButton>
 

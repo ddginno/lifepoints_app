@@ -10,7 +10,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/get-by-id/:id", (req, res) => {
-  console.log(req.params.id);
   News.findById(req.params.id)
     .then(item => res.json(item))
     .catch(err => res.json(err));
@@ -22,11 +21,13 @@ router.post("/", (req, res) => {
     .catch(err => res.json(err));
 });
 
-router.patch("/:id", (req, res) => {
+router.patch("/:id", async (req, res) => {
   const { id } = req.params;
-  News.findByIdAndUpdate(id, req.body, { new: true })
-    .then(card => res.json(card))
-    .catch(err => res.json(err));
+  const foundNews = await News.findById(id);
+
+  foundNews.likedByUsers = [...foundNews.likedByUsers, req.body.likedByUser];
+  foundNews.save();
+  res.json("success");
 });
 
 module.exports = router;

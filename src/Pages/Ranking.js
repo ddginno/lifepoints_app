@@ -100,32 +100,34 @@ function Ranking() {
 
   React.useEffect(() => {
     getUser().then(result => {
-      console.log(result);
+      const allUser = result
+        .sort(function(a, b) {
+          return b.userPoints - a.userPoints;
+        })
+        .slice(0, 16)
+        .map((user, index) => {
+          return {
+            ...user,
+            rank: index + 1
+          };
+        });
 
-      setUserData(result);
+      setUserData(allUser);
     });
   }, []);
 
-  const result =
-    userData &&
-    userData
-      .sort(function(a, b) {
-        return b.userPoints - a.userPoints;
-      })
-      .slice(0, 16);
-
-  function RenderUser(user, index) {
+  function RenderUser(userData) {
     return (
       <RankDark>
-        <RankBox>{index + 1}</RankBox>
-        <UserImage src={user.userImg} />
+        <RankBox>{userData.rank}</RankBox>
+        <UserImage src={userData.userImg} />
         <DataUser>
-          <div>{user.userName}</div>
+          <div>{userData.userName}</div>
           <UserPoins>
             <StarIcon>
               <i className="fas fa-star" />
             </StarIcon>
-            {user.userPoints}
+            {userData.userPoints}
           </UserPoins>
         </DataUser>
         <ProfileRankStyle
@@ -151,7 +153,7 @@ function Ranking() {
         </HeaderRanking>
       </div>
       <Content>
-        <RankContainer>{result.map(RenderUser)}</RankContainer>
+        <RankContainer>{userData.map(RenderUser)}</RankContainer>
       </Content>
 
       <div>
