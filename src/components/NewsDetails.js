@@ -100,21 +100,17 @@ const StyledIFrame = styled.iframe`
   width: 100%;
   height: 100%;
 `;
-function NewsDetails({ match }) {
+function NewsDetails({ match, activeUser }) {
   const [showNews, setShowNews] = React.useState([]);
   const [Points, setPoints] = React.useState([]);
   const [disabled, setDisabled] = React.useState(false);
+  const CurrentUserId = activeUser._id;
 
   React.useEffect(() => {
     setDisabled(
-      showNews.likedByUsers &&
-        showNews.likedByUsers.includes("5d49555ad20398c00e35941e")
+      showNews.likedByUsers && showNews.likedByUsers.includes(CurrentUserId)
     );
   }, [showNews.likedByUsers]);
-
-  console.log(showNews.likedByUsers);
-
-  const CurrentUserId = "5d49555ad20398c00e35941e";
 
   React.useEffect(() => {
     loadPoints();
@@ -128,24 +124,26 @@ function NewsDetails({ match }) {
   }
 
   React.useEffect(() => {
-    loadNews();
-  }, []);
+    function loadNews() {
+      getNewsById(match.params.id).then(result => {
+        setShowNews(result);
+      });
+    }
 
-  function loadNews() {
-    getNewsById(match.params.id).then(result => {
-      setShowNews(result);
-    });
-  }
+    loadNews();
+  }, [match.params.id]);
 
   function handleClick(event) {
     const id = showNews._id;
 
     event.preventDefault();
     setDisabled(true);
-    patchUser({
-      userPoints: Points + showNews.points,
-      id: CurrentUserId
-    });
+    patchUser(
+      {
+        userPoints: Points + showNews.points
+      },
+      CurrentUserId
+    );
     patchNews({
       likedByUser: CurrentUserId,
       id: id

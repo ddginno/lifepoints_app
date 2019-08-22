@@ -21,17 +21,21 @@ const Content = styled.div`
   overflow: auto;
   height: 100%;
 `;
-function News({ news }) {
+function News({ news, activeUser }) {
+  const aktivProfile = activeUser._id;
+  console.log(aktivProfile);
   function renderCard(newsItem) {
     return (
-      <StyledLink to={`/news/${newsItem._id}`}>
-        <NewsContentCard
-          key={newsItem._id}
-          imageContent={newsItem.imageContent}
-          titleContent={newsItem.titleContent}
-          subtitleContent={newsItem.subtitleContent}
-        />
-      </StyledLink>
+      <div key={newsItem._id}>
+        <StyledLink to={`/news/${newsItem._id}`}>
+          <NewsContentCard
+            key={newsItem._id}
+            imageContent={newsItem.imageContent}
+            titleContent={newsItem.titleContent}
+            subtitleContent={newsItem.subtitleContent}
+          />
+        </StyledLink>
+      </div>
     );
   }
   return (
@@ -41,7 +45,7 @@ function News({ news }) {
       </div>
 
       <Content>
-        <UserProfile />
+        <UserProfile activeUser1={aktivProfile} />
         {news
           .slice()
           .sort(function(a, b) {
@@ -56,7 +60,7 @@ function News({ news }) {
 
       <Navbar
         links={[
-          { to: "/", icon: "fa-newspaper", title: "News" },
+          { to: "/news", icon: "fa-newspaper", title: "News" },
           { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
           { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
           { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },

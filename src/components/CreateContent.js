@@ -74,7 +74,7 @@ function CreateContent({ history }) {
 
     postNews(newsData);
 
-    history.replace("/");
+    history.replace("/news");
     console.log(newsData);
   }
 

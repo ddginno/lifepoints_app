@@ -1,19 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { getUser } from "../services";
-import ButtonLink from "../components/ButtonLink";
+
 import Navbar from "../components/Navbar";
 
 const HeaderRanking = styled.div`
   display: flex;
   position: fixed;
   background-color: #404447;
-
+  justify-content: center;
+  font-size: 20px;
   width: 100%;
   height: 70px;
   color: #0ae5f5;
   align-items: center;
   z-index: 1;
+  background-image: linear-gradient(to top, transparent 0%, black 150%);
 `;
 const RankDark = styled.div`
   position: relative;
@@ -55,6 +57,7 @@ const UserImage = styled.img`
   height: 60px;
   border-radius: 50%;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
+  object-fit: cover;
 `;
 
 const ProfileRankStyle = styled.img`
@@ -66,12 +69,6 @@ const ProfileRankStyle = styled.img`
 const DataUser = styled.div`
   margin: 20px 25px;
   color: white;
-`;
-
-const StyleBackButton = styled.div`
-  color: #0ae5f5;
-  margin-right: 90px;
-  margin-left: 10px;
 `;
 
 const StyleButtonIcon = styled.div`
@@ -118,7 +115,7 @@ function Ranking() {
 
   function RenderUser(userData) {
     return (
-      <RankDark>
+      <RankDark key={userData.rank}>
         <RankBox>{userData.rank}</RankBox>
         <UserImage src={userData.userImg} />
         <DataUser>
@@ -141,11 +138,6 @@ function Ranking() {
     <Grid>
       <div>
         <HeaderRanking>
-          <ButtonLink to="/">
-            <StyleBackButton>
-              <i className="fas fa-chevron-left" />
-            </StyleBackButton>
-          </ButtonLink>
           <StyleButtonIcon>
             <i className="fas fa-trophy" />
           </StyleButtonIcon>
@@ -159,7 +151,7 @@ function Ranking() {
       <div>
         <Navbar
           links={[
-            { to: "/", icon: "fa-newspaper", title: "News" },
+            { to: "/news", icon: "fa-newspaper", title: "News" },
             { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
             { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
             { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
