@@ -46,6 +46,11 @@ function App() {
     setActiveUser(user);
   }
 
+  function handleRegister(user) {
+    setProfiles([...profiles, user]);
+    setActiveUser(user);
+  }
+
   /*function handleLogoutClick() {
     setActiveUser({});
   }*/
@@ -113,7 +118,9 @@ function App() {
           <Route
             exact
             path="/register"
-            render={props => <Register {...props} />}
+            render={props => (
+              <Register {...props} onCreateProfile={handleRegister} />
+            )}
           />
           <Route
             exact

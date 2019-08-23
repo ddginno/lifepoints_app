@@ -110,6 +110,7 @@ function RegisterForm({ onCreateProfile, history }) {
     userName: "",
     password: "",
     email: "",
+    userPoints: "",
     userImg: "",
     purchases: []
   });
@@ -159,7 +160,7 @@ function RegisterForm({ onCreateProfile, history }) {
     return Object.keys(errors).length === 0 ? null : errors;
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const errors = validate();
 
@@ -176,7 +177,9 @@ function RegisterForm({ onCreateProfile, history }) {
       purchases: []
     };
 
-    postUser(userData);
+    const result = await postUser(userData);
+    console.log(result);
+    onCreateProfile(result);
     history.replace("/login");
   }
 
