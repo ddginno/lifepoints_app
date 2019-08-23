@@ -7,7 +7,10 @@ const UserData = new mongoose.Schema({
   },
   password: String,
   userImg: String,
-  userPoints: Number,
+  userPoints: {
+    type: Number,
+    default: 0
+  },
   email: String,
   confirmed: {
     type: Boolean,

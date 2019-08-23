@@ -75,7 +75,7 @@ function ShopContentCard({
 }
 ShopContentCard.propTypes = {
   shopTitle: PropTypes.string.isRequired,
-  shopPoints: PropTypes.string.isRequired,
+  shopPoints: PropTypes.number.isRequired,
   shopImg: PropTypes.string.isRequired
 };
 

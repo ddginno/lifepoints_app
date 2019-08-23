@@ -6,7 +6,7 @@ const shopCardSchema = new mongoose.Schema({
     required: true
   },
   shopImg: String,
-  shopPoints: String,
+  shopPoints: Number,
   dateCreated: {
     type: Date,
     default: Date.now()
