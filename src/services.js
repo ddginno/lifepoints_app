@@ -42,8 +42,6 @@ export function getUserById(id) {
 
 // patchUser({userPoints: user.userPoints + news.points })
 export function patchUser(data, id) {
-  console.log(id);
-  console.log(data);
   return fetchUser("PATCH", data, id);
 }
 

@@ -22,8 +22,6 @@ const Content = styled.div`
   height: 100%;
 `;
 function News({ news, activeUser }) {
-  const aktivProfile = activeUser._id;
-  console.log(aktivProfile);
   function renderCard(newsItem) {
     return (
       <div key={newsItem._id}>
@@ -45,7 +43,7 @@ function News({ news, activeUser }) {
       </div>
 
       <Content>
-        <UserProfile activeUser1={aktivProfile} />
+        <UserProfile activeUser={activeUser} />
         {news
           .slice()
           .sort(function(a, b) {
@@ -63,8 +61,7 @@ function News({ news, activeUser }) {
           { to: "/news", icon: "fa-newspaper", title: "News" },
           { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
           { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
-          { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
-          { to: "/backend", icon: "fa-users-cog", title: "Backend" }
+          { to: "/shop", icon: "fa-shopping-cart", title: "Shop" }
         ]}
       />
     </Grid>

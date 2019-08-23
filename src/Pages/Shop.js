@@ -15,14 +15,14 @@ const Grid = styled.div`
 function Shop({ activeUser, ...Props }) {
   const [shop, setShop] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState(null);
-  console.log(activeUser);
+
   React.useEffect(() => {
     getShop().then(result => {
       const cards = result;
       setShop(cards);
     });
   }, []);
-
+  /* eslint-disable*/
   React.useEffect(() => {
     function loadPoints() {
       getUser().then(result => {
@@ -32,17 +32,7 @@ function Shop({ activeUser, ...Props }) {
     }
     loadPoints();
   }, []);
-
-  // React.useEffect(() => {
-  //   loadNews();
-  // }, []);
-
-  // function loadNews() {
-  //   getShopNewsById().then(result => {
-  //     setShowShopNews(result);
-  //     console.log(result);
-  //   });
-  // }
+  /* eslint-disable*/
 
   function handleClick(id) {
     getShop().then(result => {
@@ -75,7 +65,7 @@ function Shop({ activeUser, ...Props }) {
           <Header />
         </div>
         <Container>
-          <UserProfile />
+          <UserProfile activeUser={activeUser} />
           {shop
             .slice()
             .sort(function(a, b) {
@@ -92,8 +82,7 @@ function Shop({ activeUser, ...Props }) {
             { to: "/news", icon: "fa-newspaper", title: "News" },
             { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
             { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
-            { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
-            { to: "/backend", icon: "fa-users-cog", title: "Backend" }
+            { to: "/shop", icon: "fa-shopping-cart", title: "Shop" }
           ]}
         />
       </Grid>

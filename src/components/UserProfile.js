@@ -67,7 +67,7 @@ const ProfileContentRight = styled.div`
 
 const ProfileContentMid = styled.div``;
 
-function UserProfile({ activeUser1 }) {
+function UserProfile({ activeUser }) {
   const [scrollState, setScrollState] = React.useState({
     visible: true,
     prevScrollpos: window.pageYOffset
@@ -89,7 +89,7 @@ function UserProfile({ activeUser1 }) {
   });
 
   const [userData, setUserData] = React.useState([]);
-
+  /* eslint-disable*/
   React.useEffect(() => {
     getUser().then(result => {
       const User = result
@@ -102,11 +102,12 @@ function UserProfile({ activeUser1 }) {
             rank: index + 1
           };
         })
-        .find(user => user._id === activeUser1);
+        .find(user => user._id === activeUser._id);
 
       setUserData(User);
     });
   }, []);
+  /* eslint-disable*/
 
   return (
     <ProfileDisplay visible={scrollState.visible}>

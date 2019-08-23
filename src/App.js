@@ -39,16 +39,16 @@ function App() {
   React.useEffect(() => {
     setToLocal("ActiveUser", activeUser);
   }, [activeUser]);
-  console.log(activeUser);
+
   function handleLogin(userName) {
     const index = profiles.findIndex(user => user.userName === userName);
     const user = profiles[index];
     setActiveUser(user);
   }
 
-  function handleLogoutClick() {
+  /*function handleLogoutClick() {
     setActiveUser({});
-  }
+  }*/
 
   return (
     <>
@@ -65,23 +65,50 @@ function App() {
           />
           <Route
             exact
+            path="/login"
+            render={props => (
+              <Login onLogin={handleLogin} activeUser={activeUser} {...props} />
+            )}
+          />
+          <Route
+            exact
             path="/qrcode"
-            render={props => <QrCode activeUser={activeUser} {...props} />}
+            render={props =>
+              activeUser.userName ? (
+                <QrCode activeUser={activeUser} {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
           />
           <Route
             exact
             path="/ranking"
-            render={props => <Ranking {...props} />}
+            render={props =>
+              activeUser.userName ? <Ranking {...props} /> : <Redirect to="/" />
+            }
           />
           <Route
             exact
             path="/shop"
-            render={props => <Shop activeUser={activeUser} {...props} />}
+            render={props =>
+              activeUser.userName ? (
+                <Shop activeUser={activeUser} {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
           />
           <Route
             exact
             path="/backend"
-            render={props => <CreateContent {...props} />}
+            render={props =>
+              activeUser.userName ? (
+                <CreateContent {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
           />
           <Route
             exact

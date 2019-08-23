@@ -105,7 +105,7 @@ function NewsDetails({ match, activeUser }) {
   const [Points, setPoints] = React.useState([]);
   const [disabled, setDisabled] = React.useState(false);
   const CurrentUserId = activeUser._id;
-
+  /* eslint-disable*/
   React.useEffect(() => {
     setDisabled(
       showNews.likedByUsers && showNews.likedByUsers.includes(CurrentUserId)
@@ -132,7 +132,7 @@ function NewsDetails({ match, activeUser }) {
 
     loadNews();
   }, [match.params.id]);
-
+  /* eslint-disable*/
   function handleClick(event) {
     const id = showNews._id;
 

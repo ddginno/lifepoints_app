@@ -154,8 +154,7 @@ function Ranking() {
             { to: "/news", icon: "fa-newspaper", title: "News" },
             { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
             { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
-            { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
-            { to: "/backend", icon: "fa-users-cog", title: "Backend" }
+            { to: "/shop", icon: "fa-shopping-cart", title: "Shop" }
           ]}
         />
       </div>

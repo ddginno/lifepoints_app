@@ -176,23 +176,13 @@ function RegisterForm({ onCreateProfile, history }) {
       purchases: []
     };
 
-    console.log(userData);
     postUser(userData);
-    //history.replace("/login");
+    history.replace("/login");
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <FormContainer>
-        {/* <label>Upload a picture</label>
-        <StyledUpload>
-          {image ? (
-            <img src={image} alt="" style={{ width: "30%" }} />
-          ) : (
-            <input type="file" name="file" onChange={upload} />
-          )}
-        </StyledUpload>
-         */}
         <div>
           {image ? (
             <img
@@ -240,7 +230,7 @@ function RegisterForm({ onCreateProfile, history }) {
         {errors.password && <StyledError>{errors.password}</StyledError>}
         <RedButton text="Register now" type="submit" />
         <ButtonContainer>
-          <Link to="/ ">
+          <Link to="/login">
             <GreyButton text="Back" />
           </Link>
         </ButtonContainer>

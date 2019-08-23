@@ -78,10 +78,6 @@ function Login({ onLogin, history, activeUser, ...props }) {
   const [password, setPassword] = React.useState("");
   const [errors, setErrors] = React.useState({});
 
-  //console.log(activeUser);
-
-  //setActiveCoach({});
-
   function handleUsernameChange(event) {
     const value = event.target.value;
     setUsername(value);
@@ -105,8 +101,6 @@ function Login({ onLogin, history, activeUser, ...props }) {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
-    //console.log(activeUser);
     const errors = validate();
 
     if (errors) {
@@ -119,14 +113,11 @@ function Login({ onLogin, history, activeUser, ...props }) {
         activeUser.userName === userName &&
         activeUser.password === password
       ) {
-        console.log(activeUser);
         history.replace("/news");
       } else {
         alert("wrong password");
       }
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   }
 
   return (

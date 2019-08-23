@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-//import PropTypes from "prop-types";
+
 import { postNews, postShop, postUser } from "../services";
 import Navbar from "../components/Navbar";
 
@@ -75,7 +75,6 @@ function CreateContent({ history }) {
     postNews(newsData);
 
     history.replace("/news");
-    console.log(newsData);
   }
 
   function handleSubmitShop(event) {
@@ -89,7 +88,6 @@ function CreateContent({ history }) {
     };
     postShop(shopData);
     history.replace("/shop");
-    console.log(shopData);
   }
   function handleSubmitUser(event) {
     event.preventDefault();
@@ -102,7 +100,6 @@ function CreateContent({ history }) {
     };
     postUser(userData);
     history.replace("/news");
-    console.log(userData);
   }
 
   return (
