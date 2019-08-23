@@ -38,10 +38,10 @@ const HeaderLink = styled(Link)`
 function Navbar({ links }) {
   return (
     <HeaderNav>
-      {links.map(({ to, icon, title }) => (
-        <HeaderLink key={to} to={to}>
-          <i className={`fas ${icon}`} />
-          <NavTitle>{title}</NavTitle>
+      {links.map(link => (
+        <HeaderLink key={link.to} to={link.to}>
+          <i className={`fas ${link.icon}`} />
+          <NavTitle>{link.title}</NavTitle>
         </HeaderLink>
       ))}
     </HeaderNav>

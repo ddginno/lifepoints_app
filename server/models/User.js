@@ -5,8 +5,10 @@ const UserData = new mongoose.Schema({
     type: String,
     required: true
   },
+  password: String,
   userImg: String,
   userPoints: Number,
+  email: String,
   confirmed: {
     type: Boolean,
     default: false

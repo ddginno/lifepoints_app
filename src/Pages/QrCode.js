@@ -3,7 +3,6 @@ import QRCode from "qrcode.react";
 import Headers from "../components/Header";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-//import { getUserById } from "../services";
 
 const Grid = styled.div`
   display: grid;
@@ -17,25 +16,21 @@ const Content = styled.div`
   align-items: center;
 `;
 
-function QrCode() {
+function QrCode({ activeUser }) {
   return (
     <Grid>
       <div>
         <Headers />
       </div>
       <Content>
-        <QRCode
-          size="120"
-          value="https://mysterious-sierra-56038.herokuapp.com"
-        />{" "}
+        <QRCode size={250} value={activeUser._id} />
       </Content>
       <Navbar
         links={[
-          { to: "/", icon: "fa-newspaper", title: "News" },
+          { to: "/news", icon: "fa-newspaper", title: "News" },
           { to: "/qrcode", icon: "fa-qrcode", title: "Qrcode" },
           { to: "/ranking", icon: "fa-trophy", title: "Ranking" },
-          { to: "/shop", icon: "fa-shopping-cart", title: "Shop" },
-          { to: "/backend", icon: "fa-users-cog", title: "Backend" }
+          { to: "/shop", icon: "fa-shopping-cart", title: "Shop" }
         ]}
       />
     </Grid>

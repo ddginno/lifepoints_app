@@ -10,7 +10,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/get-by-id/:id", (req, res) => {
-  console.log(req.params.id);
   Shop.findById(req.params.id)
     .then(item => res.json(item))
     .catch(err => res.json(err));

@@ -35,7 +35,7 @@ const Icon = styled.div`
 function Header({ text }) {
   return (
     <HeaderStyle>
-      <Icon> {text && <ButtonLink to="/">{text}</ButtonLink>}</Icon>
+      <Icon> {text && <ButtonLink to="/news">{text}</ButtonLink>}</Icon>
 
       <Kreis>
         <Logo />

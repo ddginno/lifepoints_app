@@ -1,16 +1,31 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import News from "./Pages/News";
 import Shop from "./Pages/Shop";
 import GlobalStyles from "./GlobalStyles";
 import CreateContent from "./components/CreateContent";
-import { getNews } from "./services";
+import { getNews, getUser, getFromLocal, setToLocal } from "./services";
 import NewsDetails from "./components/NewsDetails";
 import Ranking from "./Pages/Ranking";
 import QrCode from "./Pages/QrCode";
+import Login from "./Pages/Login";
+import Register from "./components/Register";
 
 function App() {
   const [news, setNews] = React.useState([]);
+  const [profiles, setProfiles] = React.useState([]);
+  const [activeUser, setActiveUser] = React.useState(
+    getFromLocal("ActiveUser") || {}
+  );
+
+  React.useEffect(() => {
+    getUser().then(result => setProfiles(result));
+  }, []);
 
   React.useEffect(() => {
     loadNews();
@@ -21,6 +36,19 @@ function App() {
       setNews(result);
     });
   }
+  React.useEffect(() => {
+    setToLocal("ActiveUser", activeUser);
+  }, [activeUser]);
+
+  function handleLogin(userName) {
+    const index = profiles.findIndex(user => user.userName === userName);
+    const user = profiles[index];
+    setActiveUser(user);
+  }
+
+  /*function handleLogoutClick() {
+    setActiveUser({});
+  }*/
 
   return (
     <>
@@ -28,22 +56,81 @@ function App() {
         <GlobalStyles />
 
         <Switch>
-          <Route path="/qrcode" render={props => <QrCode {...props} />} />
-          <Route path="/ranking" render={props => <Ranking {...props} />} />
           <Route
+            exact
+            path="/"
+            render={props => (
+              <Login onLogin={handleLogin} activeUser={activeUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/login"
+            render={props => (
+              <Login onLogin={handleLogin} activeUser={activeUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/qrcode"
+            render={props =>
+              activeUser.userName ? (
+                <QrCode activeUser={activeUser} {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/ranking"
+            render={props =>
+              activeUser.userName ? <Ranking {...props} /> : <Redirect to="/" />
+            }
+          />
+          <Route
+            exact
             path="/shop"
-            render={props => <Shop {...props} />}
-            component={Shop}
+            render={props =>
+              activeUser.userName ? (
+                <Shop activeUser={activeUser} {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
           />
           <Route
+            exact
             path="/backend"
-            render={props => <CreateContent {...props} />}
+            render={props =>
+              activeUser.userName ? (
+                <CreateContent {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
           />
           <Route
-            path="/news/:id"
-            render={props => <NewsDetails {...props} />}
+            exact
+            path="/register"
+            render={props => <Register {...props} />}
           />
-          <Route path="/" render={props => <News news={news} {...props} />} />
+          <Route
+            exact
+            path="/news/:id"
+            render={props => <NewsDetails activeUser={activeUser} {...props} />}
+          />
+          <Route
+            exact
+            path="/news"
+            render={props =>
+              activeUser.userName ? (
+                <News news={news} activeUser={activeUser} {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
+            }
+          />
         </Switch>
       </Router>
     </>
