@@ -6,8 +6,6 @@ import styled from "styled-components";
 const StyleButton = styled.div`
   height: 30px;
   width: 30px;
-
-  color: aqua;
 `;
 
 function ButtonLink({ children, to, ...other }) {
