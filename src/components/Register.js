@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #0ae5f5;
+  background: black;
 `;
 
 const Header = styled.div`
@@ -17,17 +17,19 @@ const Header = styled.div`
   align-items: flex-end;
   flex-grow: 0;
   flex-shrink: 0;
-  width: 100vw;
+
   height: 80px;
-  margin-top: 15px;
-  margin-bottom: 100px;
-  font-size: 45px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  color: white;
+  font-family: sans-serif;
 `;
 
 function Register({ onCreateProfile }) {
   return (
     <Container>
-      <Header>Register</Header>
+      <Header>REGISTER</Header>
       <RegisterForm onCreateProfile={onCreateProfile} />
     </Container>
   );

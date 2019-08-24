@@ -12,25 +12,27 @@ const HeaderStyle = styled.header`
   align-items: center;
   top: 0%;
   z-index: 1;
-
+  padding-left: 10px;
   height: 80px;
   width: 100%;
-  background-color: #0ae5f5;
-  background-image: linear-gradient(to bottom, #0ae5f5 0%, black 150%);
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, black 20%, transparent 150%);
 `;
 
 const Kreis = styled.div`
-  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
   border-radius: 50%;
-
+  border: solid 2px #0ae5f5;
   height: 70px;
   width: 70px;
-  padding-top: 5px;
-  padding-left: 4px;
 `;
 const Icon = styled.div`
   position: absolute;
   left: 10px;
+  color: white;
 `;
 function Header({ text }) {
   return (

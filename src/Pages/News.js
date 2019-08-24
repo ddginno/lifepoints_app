@@ -13,12 +13,11 @@ const StyledLink = styled(Link)`
 
 const Grid = styled.div`
   display: grid;
-
-  grid-template-rows: 80px 1fr 60px;
+  height: 100vh;
+  grid-template-rows: 180px auto 70px;
 `;
 
 const Content = styled.div`
-  overflow: auto;
   height: 100%;
 `;
 function News({ news, activeUser }) {

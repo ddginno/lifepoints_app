@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 const HeaderRanking = styled.div`
   display: flex;
   position: fixed;
-  background-color: #404447;
+
   justify-content: center;
   font-size: 20px;
   width: 100%;
@@ -15,7 +15,7 @@ const HeaderRanking = styled.div`
   color: #0ae5f5;
   align-items: center;
   z-index: 1;
-  background-image: linear-gradient(to top, transparent 0%, black 150%);
+  background-image: linear-gradient(to top, transparent 0%, black 20%);
 `;
 const RankDark = styled.div`
   position: relative;
@@ -86,7 +86,7 @@ const RankContainer = styled.div`
 const Grid = styled.div`
   display: grid;
   height: 100vh;
-  grid-template-rows: 70px auto 60px;
+  grid-template-rows: 60px auto 50px;
 `;
 const Content = styled.div`
   height: 100%;

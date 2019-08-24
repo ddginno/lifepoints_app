@@ -83,7 +83,7 @@ const StyleBackButton = styled.div`
   font-size: 30px;
   width: 20px;
   height: 20px;
-  color: black;
+  color: #0ae5f5;
   background-color: transparent;
 `;
 

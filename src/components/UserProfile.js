@@ -28,7 +28,8 @@ const ProfileDisplay = styled.div`
   top: 80px;
   width: 100%;
   height: 80px;
-  background-color: gray;
+  background-color: transparent 50%;
+  background-image: linear-gradient(to top, black 20%, transparent 150%);
   justify-content: space-between;
   align-items: center;
   color: white;
@@ -65,7 +66,11 @@ const ProfileContentRight = styled.div`
   margin: 0px;
 `;
 
-const ProfileContentMid = styled.div``;
+const ProfileContentMid = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 function UserProfile({ activeUser }) {
   const [scrollState, setScrollState] = React.useState({

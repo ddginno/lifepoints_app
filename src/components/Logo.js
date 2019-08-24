@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const LogoElement = styled.img`
-  width: 63px;
+  width: 45px;
+  padding-bottom: 10px;
 `;
 
 const Logo = () => (
-  <LogoElement alt="lifepointslogo" src="../img/LP-LOGO2.png" />
+  <LogoElement alt="lifepointslogo" src="../img/LP-LOGODETAIL.png" />
 );
 
 export default Logo;

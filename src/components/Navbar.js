@@ -11,8 +11,8 @@ const NavTitle = styled.p`
 
 const HeaderNav = styled.header`
   height: 60px;
-  border-top: 2px solid #979797;
-  background: #404447;
+  
+  background: transparent;
   width: 100%;
   display: flex;
   align-items: center;
@@ -21,6 +21,7 @@ const HeaderNav = styled.header`
   position: fixed;
   bottom: 0;
   z-index: 1;
+  background-image: linear-gradient(to bottom, transparent 0%, black 20%);*/
 `;
 
 const HeaderLink = styled(Link)`

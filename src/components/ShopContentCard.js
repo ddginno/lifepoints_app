@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   width: 100%;
   border-radius: 1px;
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 `;
 const StyledTitle = styled.p`
   color: #0ae5f5;

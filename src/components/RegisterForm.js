@@ -16,6 +16,7 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
 const PlaceholderImg = styled.img`
   width: auto;
   height: 150px;
+  border-radius: 50%;
 `;
 
 const Input = styled.input`
@@ -41,8 +42,6 @@ const Label = styled.label`
   background: #0776b8;
   opacity: 0.6;
   margin-bottom: 10px;
-  border: 1px solid lightgray;
-  border-radius: 15px;
 `;
 
 const ButtonContainer = styled.div`
@@ -56,24 +55,34 @@ const FormContainer = styled.div`
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  width: 300px;
   margin: 0px 15px 30px 15px;
   background-color: black;
-  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.75);
-  input,
+  box-shadow: 0px 0px 5px 5px rgba(10, 229, 245, 1);
+  input {
+    margin: 5px;
+    padding: 10px;
+    width: 80%;
+    border-radius: 20px;
+    color: white;
+    background: black;
+  }
+
   select {
     font-size: 16px;
-    width: 80vw;
+    width: 250px;
     border: grey solid 1px;
     padding: 5px 5px 5px 10px;
     border-radius: 15px;
     background-color: black;
-    border: solid 2px #0ae5f5;
+    border-bottom: solid 2px #0ae5f5;
     margin-bottom: 10px;
     color: white;
   }
+
   label {
     font-size: 18px;
-    margin: 10px 10px 0px 10px;
+    margin: 5px 5px 0px 5px;
   }
   button {
     display: block;
@@ -151,8 +160,7 @@ function RegisterForm({ onCreateProfile, history }) {
     const errors = {};
 
     if (newProfile.userName.trim() < 3) {
-      errors.userName =
-        "Please put in a username with at least three characters";
+      errors.userName = "Please put in a username";
     }
     if (newProfile.password.length < 7) {
       errors.password = "The password must contain at least seven characters";
@@ -191,7 +199,14 @@ function RegisterForm({ onCreateProfile, history }) {
             <img
               src={image}
               alt=""
-              style={{ width: "auto", height: "310px", margin: "15px" }}
+              style={{
+                width: "200px",
+                height: "200px",
+                margin: "15px",
+                borderRadius: "50%",
+                border: "solid 2px #0ae5f5",
+                objectFit: "cover"
+              }}
             />
           ) : (
             <>

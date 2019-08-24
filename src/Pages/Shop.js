@@ -9,7 +9,8 @@ import styled from "styled-components";
 
 const Grid = styled.div`
   display: grid;
-  grid-template-rows: 70px 1fr 60px;
+  height: 100vh;
+  grid-template-rows: 180px auto 70px;
 `;
 
 function Shop({ activeUser, ...Props }) {

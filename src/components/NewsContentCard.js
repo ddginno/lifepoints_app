@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   width: 100%;
   border-radius: 1px;
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 `;
 
 const StyledTitle = styled.p`
@@ -34,6 +34,7 @@ const ContentContainer = styled.div`
   font-family: sans-serif;
   border: 2px solid #979797;
   margin: 0px;
+  background-color: #0d2330;
 `;
 
 function NewsContentCard({
