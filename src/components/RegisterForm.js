@@ -65,7 +65,6 @@ const FormContainer = styled.div`
     width: 80%;
     border-radius: 20px;
     color: black;
-    background: black;
     background-color: white;
   }
 

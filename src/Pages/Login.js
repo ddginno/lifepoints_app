@@ -53,8 +53,8 @@ const StyledInput = styled.input`
   padding: 10px;
   width: 65%;
   border-radius: 20px;
-  color: white;
-  background: black;
+  color: black;
+  background: white;
 `;
 
 const StyledError = styled.div`
