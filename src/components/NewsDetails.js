@@ -18,18 +18,19 @@ const NewsDetailsStyled = styled.div`
 const StyledTitle = styled.p`
   color: #0ae5f5;
   margin-bottom: 0px;
-  margin-top: 1px;
+  margin-top: 2px;
+  font-size: 20px;
 `;
 const StyledSubtitle = styled.p`
   color: white;
   margin-top: 1px;
+  font-size: 18px;
 `;
 
 const ContentImageCard = styled.img`
   box-sizing: border-box;
   height: ${props => props.height || "auto"};
   width: ${props => props.width || "100%"};
-  border: 2px solid #979797;
 `;
 
 const ContentContainer = styled.div`
@@ -43,9 +44,10 @@ const ContentContainer = styled.div`
 const StyledDescription = styled.div`
   width: 100vw;
   height: auto;
-  border: 2px solid #0ae5f5;
+
   padding: 5px 5px 5px 10px;
   color: white;
+  margin-bottom: 25px;
 `;
 
 const ContentVideo = styled.div`
@@ -67,10 +69,10 @@ const StyleButton = styled.button`
   align-items: center;
   width: 60px;
   height: 60px;
-  border: solid 2px #0ae5f5;
-  font-size: 35px;
-  margin: 0px 2px;
 
+  font-size: 35px;
+  margin-bottom: 25px;
+  margin-top: 25;
   & :disabled {
     color: red;
   }
@@ -85,6 +87,11 @@ const StyleBackButton = styled.div`
   height: 20px;
   color: #0ae5f5;
   background-color: transparent;
+`;
+
+const LogoElement = styled.img`
+  width: 35px;
+  padding-bottom: 10px;
 `;
 
 const Grid = styled.div`
@@ -177,11 +184,11 @@ function NewsDetails({ match, activeUser }) {
             value={showNews._id}
             onClick={handleClick}
           >
-            <i className="far fa-thumbs-up" />
+            <LogoElement alt="like" src="../img/001-like.svg" />
           </StyleButton>
 
           <StyleButton disabled={disabled} onClick={handleClick}>
-            <i className="far fa-thumbs-down" />
+            <LogoElement alt="dislike" src="../img/002-dislike.svg" />
           </StyleButton>
         </LikeArea>
 

@@ -15,24 +15,25 @@ const StyledCard = styled.div`
 const StyledTitle = styled.p`
   color: #0ae5f5;
   margin-bottom: 0px;
-  margin-top: 1px;
+  margin-top: 12px;
+  font-size: 20px;
 `;
 const StyledSubtitle = styled.p`
   color: white;
   margin-top: 1px;
+  font-size: 18px;
 `;
 
 const ContentImageCard = styled.img`
   box-sizing: border-box;
   height: ${props => props.height || "auto"};
   width: ${props => props.width || "100%"};
-  border: 1px solid #979797;
 `;
 
 const ContentContainer = styled.div`
   padding: 5px 5px 5px 10px;
   font-family: sans-serif;
-  border: 1px solid #979797;
+
   margin: 0px;
   background-color: #0d2330;
 `;

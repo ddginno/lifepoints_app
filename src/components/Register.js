@@ -6,15 +6,14 @@ import RegisterForm from "../components/RegisterForm";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+
   align-items: center;
-  background: black;
+  width: 100%;
 `;
 
 const Header = styled.div`
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+
   flex-grow: 0;
   flex-shrink: 0;
 

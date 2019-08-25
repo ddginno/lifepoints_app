@@ -3,7 +3,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const StyledButton = styled.button`
-  margin: 20px;
+  margin-top: 35px;
+
   height: 37px;
   border-color: #0ae5f5;
   background-color: transparent;
@@ -16,7 +17,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   position: relative;
   color: #0ae5f5;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);

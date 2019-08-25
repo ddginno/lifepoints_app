@@ -15,8 +15,7 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
 
 const PlaceholderImg = styled.img`
   width: auto;
-  height: 150px;
-  border-radius: 50%;
+  height: 100px;
 `;
 
 const Input = styled.input`
@@ -35,13 +34,14 @@ const Label = styled.label`
   display: inline-block;
   padding: 5px;
   width: 150px;
+  border-radius: 50%;
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0776b8;
+  background: black;
   opacity: 0.6;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const ButtonContainer = styled.div`
@@ -58,14 +58,15 @@ const FormContainer = styled.div`
   width: 300px;
   margin: 0px 15px 30px 15px;
   background-color: black;
-  box-shadow: 0px 0px 5px 5px rgba(10, 229, 245, 1);
+  border: solid 3px #0ae5f5;
+  border-radius: 10px;
   input {
-    margin: 5px;
     padding: 10px;
     width: 80%;
     border-radius: 20px;
-    color: white;
+    color: black;
     background: black;
+    background-color: white;
   }
 
   select {
@@ -200,8 +201,8 @@ function RegisterForm({ onCreateProfile, history }) {
               src={image}
               alt=""
               style={{
-                width: "200px",
-                height: "200px",
+                width: "250px",
+                height: "250px",
                 margin: "15px",
                 borderRadius: "50%",
                 border: "solid 2px #0ae5f5",
@@ -212,13 +213,13 @@ function RegisterForm({ onCreateProfile, history }) {
             <>
               <Input type="file" id="file" name="file" onChange={upload} />
               <Label htmlFor="file">
-                <PlaceholderImg src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+                <PlaceholderImg src="../img/add-user.svg" />
               </Label>
             </>
           )}
         </div>
 
-        <label>Username</label>
+        <div>Username</div>
         <input
           placeholder="Username"
           name="userName"
@@ -228,7 +229,7 @@ function RegisterForm({ onCreateProfile, history }) {
         />
         {errors.userName && <StyledError>{errors.userName}</StyledError>}
 
-        <label>E-Mail</label>
+        <div>E-Mail</div>
         <input
           placeholder="E-Mail"
           type="email"
@@ -236,7 +237,7 @@ function RegisterForm({ onCreateProfile, history }) {
           value={newProfile.email}
           onChange={handleChange}
         />
-        <label>Password</label>
+        <div>Password</div>
         <PasswordInput
           placeholder="Password"
           type="password"

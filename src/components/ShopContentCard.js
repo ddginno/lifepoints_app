@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  background: #6d7278;
+  background: #0d2330;
   width: 100%;
   border-radius: 1px;
   position: relative;
@@ -13,8 +13,9 @@ const StyledCard = styled.div`
 `;
 const StyledTitle = styled.p`
   color: #0ae5f5;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   margin-top: 1px;
+  font-size: 20px;
 `;
 const DisplayPoints = styled.div`
   display: flex;
@@ -26,13 +27,14 @@ const DisplayPoints = styled.div`
   border-radius: 50%;
   border: solid 2px #0ae5f5;
   background-color: Black;
+  margin-bottom: 5px;
+  margin-top: 1px;
 `;
 
 const ContentImageCard = styled.img`
   box-sizing: border-box;
   height: ${props => props.height || "auto"};
   width: ${props => props.width || "100%"};
-  border: 2px solid #979797;
 `;
 
 const ContentContainer = styled.div`
@@ -40,7 +42,7 @@ const ContentContainer = styled.div`
   justify-content: space-between;
   padding: 5px 5px 5px 10px;
   font-family: sans-serif;
-  border: 2px solid #979797;
+
   margin: 0px;
 `;
 

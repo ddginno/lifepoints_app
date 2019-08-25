@@ -4,7 +4,7 @@ import NewsContentCard from "../components/NewsContentCard";
 
 import styled from "styled-components";
 import UserProfile from "../components/UserProfile";
-import Header from "../components/Header";
+//import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
 const StyledLink = styled(Link)`
@@ -14,11 +14,12 @@ const StyledLink = styled(Link)`
 const Grid = styled.div`
   display: grid;
   height: 100vh;
-  grid-template-rows: 180px auto 70px;
+  grid-template-rows: 80px auto 70px;
 `;
 
 const Content = styled.div`
   height: 100%;
+  overflow: auto;
 `;
 function News({ news, activeUser }) {
   function renderCard(newsItem) {
@@ -38,11 +39,10 @@ function News({ news, activeUser }) {
   return (
     <Grid>
       <div>
-        <Header />
+        <UserProfile activeUser={activeUser} />
       </div>
 
       <Content>
-        <UserProfile activeUser={activeUser} />
         {news
           .slice()
           .sort(function(a, b) {

@@ -25,11 +25,11 @@ const ShopProfilePoints = styled.div`
 const ProfileDisplay = styled.div`
   display: flex;
   position: fixed;
-  top: 80px;
+
   width: 100%;
   height: 80px;
   background-color: transparent 50%;
-  background-image: linear-gradient(to top, black 20%, transparent 150%);
+  background-image: linear-gradient(to bottom, black 20%, transparent 150%);
   justify-content: space-between;
   align-items: center;
   color: white;
@@ -129,10 +129,7 @@ function UserProfile({ activeUser }) {
         <ShopProfilePoints>{userData.userPoints}/10000</ShopProfilePoints>
       </ProfileContentMid>
       <ProfileContentRight>
-        <ProfileRankStyle
-          alt="UserImage"
-          src="https://image.shutterstock.com/image-vector/military-rank-icon-trendy-flat-260nw-1219236889.jpg"
-        />
+        <ProfileRankStyle alt="UserImage" src="../img/LPSOFTPINK.png" />
         <RankFont>{userData.rank}</RankFont>
       </ProfileContentRight>
     </ProfileDisplay>

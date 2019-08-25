@@ -14,7 +14,7 @@ const Logo = styled.div`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-rows: 280px 70px 1fr;
+  grid-template-rows: 250px 70px 1fr;
   width: 100%;
   height: 100vh;
   background-color: Black;
@@ -27,13 +27,14 @@ const LogoPng = styled.img`
 `;
 
 const StyledButton = styled.button`
-  margin: 5px;
+  margin-top: 25px;
+
   width: 90px;
-  height: 40px;
+  height: 35px;
   color: white;
   border-radius: 20px;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   border: solid 2px #0ae5f5;
 `;
@@ -50,7 +51,7 @@ const Form = styled.form`
 const StyledInput = styled.input`
   margin: 5px;
   padding: 10px;
-  width: 80%;
+  width: 65%;
   border-radius: 20px;
   color: white;
   background: black;
@@ -67,7 +68,7 @@ const StyledError = styled.div`
 const Sub = styled.div`
   display: flex;
   justify-content: center;
-  font-family: sans-serif;
+
   color: #0ae5f5;
   font-size: 20px;
   font-variant: small-caps;
@@ -125,12 +126,12 @@ function Login({ onLogin, history, activeUser, ...props }) {
       <Logo>
         <LogoPng src="../img//LP-LOGO2.png" />
       </Logo>
-      <Sub>-FOR A BETTER LIFE-</Sub>
+      <Sub>for a better life</Sub>
       <Form onSubmit={handleSubmit}>
         <StyledInput
           name="userName"
           value={userName}
-          placeholder="Benutzername"
+          placeholder="Username"
           type="text"
           onChange={handleUsernameChange}
         />
