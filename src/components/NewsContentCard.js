@@ -26,13 +26,13 @@ const ContentImageCard = styled.img`
   box-sizing: border-box;
   height: ${props => props.height || "auto"};
   width: ${props => props.width || "100%"};
-  border: 2px solid #979797;
+  border: 1px solid #979797;
 `;
 
 const ContentContainer = styled.div`
   padding: 5px 5px 5px 10px;
   font-family: sans-serif;
-  border: 2px solid #979797;
+  border: 1px solid #979797;
   margin: 0px;
   background-color: #0d2330;
 `;

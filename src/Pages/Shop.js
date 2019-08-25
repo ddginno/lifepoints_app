@@ -1,6 +1,5 @@
 import React from "react";
 import ShopContentCard from "../components/ShopContentCard";
-import Container from "../components/Container";
 import UserProfile from "../components/UserProfile";
 import { getShop, getUser, patchUser } from "../services";
 import Header from "../components/Header";
@@ -11,6 +10,13 @@ const Grid = styled.div`
   display: grid;
   height: 100vh;
   grid-template-rows: 180px auto 70px;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
 `;
 
 function Shop({ activeUser, ...Props }) {
@@ -65,7 +71,7 @@ function Shop({ activeUser, ...Props }) {
         <div>
           <Header />
         </div>
-        <Container>
+        <Content>
           <UserProfile activeUser={activeUser} />
           {shop
             .slice()
@@ -77,7 +83,7 @@ function Shop({ activeUser, ...Props }) {
               }
             })
             .map(shop => renderCard(shop))}
-        </Container>
+        </Content>
         <Navbar
           links={[
             { to: "/news", icon: "fa-newspaper", title: "News" },

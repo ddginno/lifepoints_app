@@ -5,7 +5,7 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import RedButton from "./RedButton";
+import BlueButton from "./BlueButton";
 import GreyButton from "./GreyButton";
 
 import { postUser } from "../services";
@@ -246,7 +246,7 @@ function RegisterForm({ onCreateProfile, history }) {
           error={errors.password}
         />
         {errors.password && <StyledError>{errors.password}</StyledError>}
-        <RedButton text="Register now" type="submit" />
+        <BlueButton text="Register now" type="submit" />
         <ButtonContainer>
           <Link to="/login">
             <GreyButton text="Back" />

@@ -56,7 +56,7 @@ const StyledButton = styled.button`
   }
 `;
 
-function RedButton({ onClick, text, dis }) {
+function BlueButton({ onClick, text, dis }) {
   return (
     <StyledButton onClick={onClick} disabled={dis}>
       {text}
@@ -64,11 +64,11 @@ function RedButton({ onClick, text, dis }) {
   );
 }
 
-RedButton.propTypes = {
+BlueButton.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
   dataCy: PropTypes.string,
   dis: PropTypes.bool
 };
 
-export default RedButton;
+export default BlueButton;
