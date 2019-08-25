@@ -6,23 +6,22 @@ import RegisterForm from "../components/RegisterForm";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-
   align-items: center;
   width: 100%;
 `;
 
 const Header = styled.div`
-  top: 0;
-
-  flex-grow: 0;
-  flex-shrink: 0;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 80px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 25px;
-  color: white;
+  font-size: 35px;
+  color: #0ae5f5;
   font-family: sans-serif;
+  background-color: black;
 `;
 
 function Register({ onCreateProfile }) {
