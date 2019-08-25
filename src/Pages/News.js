@@ -18,7 +18,7 @@ const Grid = styled.div`
 `;
 
 const Content = styled.div`
-  height: 100%;
+  height: 105%;
   overflow: auto;
 `;
 function News({ news, activeUser }) {

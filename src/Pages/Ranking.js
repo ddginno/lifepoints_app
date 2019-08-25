@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { getUser } from "../services";
-import HeaderRanking from "../components/HeaderRanking";
+import SubHeader from "../components/SubHeader";
 import Navbar from "../components/Navbar";
 
 const RankDark = styled.div`
@@ -119,12 +119,12 @@ function Ranking() {
   return (
     <Grid>
       <div>
-        <HeaderRanking>
+        <SubHeader>
           <StyleButtonIcon>
             <i className="fas fa-trophy" />
           </StyleButtonIcon>
           <div>LEADERBOARD</div>
-        </HeaderRanking>
+        </SubHeader>
       </div>
       <Content>
         <RankContainer>{userData.map(RenderUser)}</RankContainer>

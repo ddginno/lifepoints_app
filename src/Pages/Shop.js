@@ -15,7 +15,7 @@ const Grid = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 105%;
   overflow: auto;
 `;
 

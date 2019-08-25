@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderRanking = styled.div`
+const SubHeader = styled.div`
   display: flex;
   position: fixed;
   justify-content: center;
@@ -13,4 +13,4 @@ const HeaderRanking = styled.div`
   background-image: linear-gradient(to top, transparent 0%, black 20%);
 `;
 
-export default HeaderRanking;
+export default SubHeader;

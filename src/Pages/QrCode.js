@@ -3,7 +3,7 @@ import QRCode from "qrcode.react";
 
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-import HeaderRanking from "../components/HeaderRanking";
+import SubHeader from "../components/SubHeader";
 
 const Grid = styled.div`
   display: grid;
@@ -27,12 +27,12 @@ function QrCode({ activeUser }) {
   return (
     <Grid>
       <div>
-        <HeaderRanking>
+        <SubHeader>
           <StyleButtonIcon>
             <i className="fas fa-qrcode" />
           </StyleButtonIcon>
           <div>MEMBERCARD</div>
-        </HeaderRanking>
+        </SubHeader>
       </div>
 
       <Content>
