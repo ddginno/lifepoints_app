@@ -4,11 +4,16 @@ import { getUser } from "../services";
 import SubHeader from "../components/SubHeader";
 import Navbar from "../components/Navbar";
 
+const Grid = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 60px auto 60px;
+`;
+
 const RankDark = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-
   width: 100%;
   height: 75px;
   background-color: #404447;
@@ -21,13 +26,11 @@ const RankBox = styled.div`
   justify-content: center;
   color: white;
   font-size: 22px;
-
   width: 30px;
   height: 60px;
   background-color: #0ae5f5;
   margin-right: 40px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
-
   border-radius: 0 3px 3px 0;
 `;
 
@@ -68,11 +71,6 @@ const RankContainer = styled.div`
   height: 100%;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  height: 100vh;
-  grid-template-rows: 60px auto 50px;
-`;
 const Content = styled.div`
   height: 100%;
   overflow-y: auto;

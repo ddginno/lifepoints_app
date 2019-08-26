@@ -26,8 +26,10 @@ const Kreis = styled.div`
   background-color: transparent;
   border-radius: 50%;
   border: solid 2px #0ae5f5;
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 const Icon = styled.div`
   position: absolute;

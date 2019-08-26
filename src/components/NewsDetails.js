@@ -20,11 +20,14 @@ const StyledTitle = styled.p`
   margin-bottom: 0px;
   margin-top: 2px;
   font-size: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
 `;
 const StyledSubtitle = styled.p`
   color: white;
   margin-top: 1px;
   font-size: 18px;
+  padding-left: 10px;
 `;
 
 const ContentImageCard = styled.img`
@@ -45,7 +48,7 @@ const StyledDescription = styled.div`
   width: 100vw;
   height: auto;
 
-  padding: 5px 5px 5px 10px;
+  padding: 10px 10px 10px 20px;
   color: white;
   margin-bottom: 25px;
 `;
@@ -87,11 +90,6 @@ const StyleBackButton = styled.div`
   height: 20px;
   color: #0ae5f5;
   background-color: transparent;
-`;
-
-const LogoElement = styled.img`
-  width: 35px;
-  padding-bottom: 10px;
 `;
 
 const Grid = styled.div`
@@ -184,11 +182,11 @@ function NewsDetails({ match, activeUser }) {
             value={showNews._id}
             onClick={handleClick}
           >
-            <LogoElement alt="like" src="../img/001-like.svg" />
+            <i className="far fa-thumbs-up"></i>
           </StyleButton>
 
           <StyleButton disabled={disabled} onClick={handleClick}>
-            <LogoElement alt="dislike" src="../img/002-dislike.svg" />
+            <i className="far fa-thumbs-down"></i>
           </StyleButton>
         </LikeArea>
 

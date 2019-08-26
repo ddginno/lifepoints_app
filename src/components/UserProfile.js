@@ -33,7 +33,7 @@ const ProfileDisplay = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  padding: 5px 5px;
+  padding: 10px 10px;
   z-index: 1;
   opacity: ${props => (props.visible ? 1 : 0)};
   transition: all 0.5s ease;

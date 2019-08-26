@@ -10,7 +10,7 @@ const NavTitle = styled.p`
 `;
 
 const HeaderNav = styled.header`
-  height: 60px;
+  height: 70px;
 
   background: transparent;
   width: 100%;

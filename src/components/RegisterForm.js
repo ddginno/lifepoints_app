@@ -21,7 +21,8 @@ const PlaceholderImg = styled.img`
 const Input = styled.input`
   width: 0.1px;
   height: 0.1px;
-  opacity: 0;
+  display: none;
+  /* opacity: 0; */
   overflow: hidden;
   position: absolute;
   z-index: -1;

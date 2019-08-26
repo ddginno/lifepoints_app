@@ -5,9 +5,7 @@ import GreyButton from "../components/GreyButton";
 
 const Logo = styled.div`
   display: flex;
-
   justify-content: center;
-
   height: 12px;
   margin-top: 40px;
 `;
@@ -28,7 +26,6 @@ const LogoPng = styled.img`
 
 const StyledButton = styled.button`
   margin-top: 25px;
-
   width: 90px;
   height: 35px;
   color: white;
