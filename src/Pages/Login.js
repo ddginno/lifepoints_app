@@ -41,7 +41,6 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: 1fr;
 `;
 
@@ -57,7 +56,6 @@ const StyledInput = styled.input`
 const StyledError = styled.div`
   margin: 5px 20px;
   padding: 5px;
-  /* background: orangered; */
   border: 2px solid red;
   border-radius: 3px;
 `;

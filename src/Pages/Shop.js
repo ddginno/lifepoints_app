@@ -2,7 +2,6 @@ import React from "react";
 import ShopContentCard from "../components/ShopContentCard";
 import UserProfile from "../components/UserProfile";
 import { getShop, getUser, patchUser } from "../services";
-//import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 

@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NewsContentCard from "../components/NewsContentCard";
-
 import styled from "styled-components";
 import UserProfile from "../components/UserProfile";
-//import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
 const StyledLink = styled(Link)`

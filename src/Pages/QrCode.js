@@ -1,6 +1,5 @@
 import React from "react";
 import QRCode from "qrcode.react";
-
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import SubHeader from "../components/SubHeader";
@@ -13,9 +12,19 @@ const Grid = styled.div`
 const Content = styled.div`
   display: flex;
   height: 100%;
-  margin-top: 200px;
+  padding-top: 200px;
   justify-content: center;
   align-content: center;
+`;
+
+const QrBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 255px;
+  height: 255px;
+  background-color: aqua;
+  border-radius: 2px;
 `;
 
 const StyleButtonIcon = styled.div`
@@ -36,7 +45,9 @@ function QrCode({ activeUser }) {
       </div>
 
       <Content>
-        <QRCode size={250} value={activeUser._id} />
+        <QrBackground>
+          <QRCode size={250} value={activeUser._id} />
+        </QrBackground>
       </Content>
 
       <div>

@@ -25,7 +25,6 @@ const ShopProfilePoints = styled.div`
 const ProfileDisplay = styled.div`
   display: flex;
   position: fixed;
-
   width: 100%;
   height: 80px;
   background-color: transparent 50%;

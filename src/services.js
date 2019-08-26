@@ -40,7 +40,6 @@ export function getUserById(id) {
   return fetch(`/api/user/get-by-id/${id}`).then(res => res.json());
 }
 
-// patchUser({userPoints: user.userPoints + news.points })
 export function patchUser(data, id) {
   return fetchUser("PATCH", data, id);
 }
