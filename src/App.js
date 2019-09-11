@@ -15,6 +15,7 @@ import Ranking from "./Pages/Ranking";
 import QrCode from "./Pages/QrCode";
 import Login from "./Pages/Login";
 import Register from "./components/Register";
+import Profile from "./Pages/Profile";
 
 function App() {
   const [news, setNews] = React.useState([]);
@@ -84,6 +85,13 @@ function App() {
               ) : (
                 <Redirect to="/" />
               )
+            }
+          />
+          <Route
+            exact
+            path="/profile"
+            render={props =>
+              activeUser.userName ? <Profile {...props} /> : <Redirect to="/" />
             }
           />
           <Route
