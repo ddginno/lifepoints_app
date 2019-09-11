@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { getUser } from "../services";
+import ProgressBar from "../components/ProgressBar";
 
 const ProfileImage = styled.img`
   width: 60px;
@@ -38,7 +39,7 @@ const ProfileDisplay = styled.div`
   transition: all 0.5s ease;
 `;
 
-const ProgressBar = styled.div`
+const ProgressBarContainer = styled.div`
   background-color: #979797;
   width: 100%;
   height: 8px;
@@ -122,9 +123,9 @@ function UserProfile({ activeUser }) {
           <i className="fas fa-star" />
           {userData.userPoints}
         </Pointsview>
-        <ProgressBar>
-          <Progress />
-        </ProgressBar>
+        <ProgressBarContainer>
+          <ProgressBar percentage={userData.userPoints} />
+        </ProgressBarContainer>
         <ShopProfilePoints>{userData.userPoints}/10000</ShopProfilePoints>
       </ProfileContentMid>
       <ProfileContentRight>

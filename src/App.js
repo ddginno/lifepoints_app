@@ -91,7 +91,11 @@ function App() {
             exact
             path="/profile"
             render={props =>
-              activeUser.userName ? <Profile {...props} /> : <Redirect to="/" />
+              activeUser.userName ? (
+                <Profile activeUser={activeUser} {...props} />
+              ) : (
+                <Redirect to="/" />
+              )
             }
           />
           <Route
